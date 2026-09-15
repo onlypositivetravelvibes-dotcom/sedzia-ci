@@ -1,0 +1,226 @@
+{
+ "rows": [
+  {
+   "task_id": "GEN-template-0-v0",
+   "family_id": "GEN-template-0",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "d778f4597533fd1f87487d208d034491e1471956e8fa21fc829fbf9291683073"
+  },
+  {
+   "task_id": "GEN-template-0-v1",
+   "family_id": "GEN-template-0",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "1342482b5c0430fea43860b9bbbc69a0012b0a6ae46247413163658c2d87dc0a"
+  },
+  {
+   "task_id": "GEN-template-0-v2",
+   "family_id": "GEN-template-0",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "c95930b762a13713f74dca2ae813f04fb3cb6046eaf8b81ea35f784d7ea95560"
+  },
+  {
+   "task_id": "GEN-template-0-v3",
+   "family_id": "GEN-template-0",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "33a6ba9cde70c5188f33a3453cfeb20f44064099e77b118d485519edbfdcf027"
+  },
+  {
+   "task_id": "GEN-template-1-v0",
+   "family_id": "GEN-template-1",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "a8f0d38d461a7f6c5920853339fefe098bf4bebaab15197826e68a1402c4b020"
+  },
+  {
+   "task_id": "GEN-template-1-v1",
+   "family_id": "GEN-template-1",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "23eeedd3402a2186c5bddc581a4302dfc8386bb1a700e4c641028f2757110402"
+  },
+  {
+   "task_id": "GEN-template-1-v2",
+   "family_id": "GEN-template-1",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "c1ca9161eb976b987ed81ce28fb62d1d855a859ecb58bee1dd058c6174ffc576"
+  },
+  {
+   "task_id": "GEN-template-1-v3",
+   "family_id": "GEN-template-1",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "855f47c0e44b9a9590853c4b56c15d18823842b023295082cd3ca7f7bed1088c"
+  },
+  {
+   "task_id": "GEN-template-2-v0",
+   "family_id": "GEN-template-2",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "82578e8b73e915baf33e1d2a5cc8c4a46e17e3c2dd9055a84a124421bbcacbfa"
+  },
+  {
+   "task_id": "GEN-template-2-v1",
+   "family_id": "GEN-template-2",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "b315fb8c9b784b7fec70642599248c27cbc0c585cd2183caaeb3ec5de446590e"
+  },
+  {
+   "task_id": "GEN-template-2-v2",
+   "family_id": "GEN-template-2",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "96c07ce818eafbef141ec37b6fd889834f22786ee4cdb4b2cb924af0808be2a7"
+  },
+  {
+   "task_id": "GEN-template-2-v3",
+   "family_id": "GEN-template-2",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "b1444bb2b15ef03e0fd6780328510e45efd7b7ed35cab6bd944a66f7e58d8b56"
+  },
+  {
+   "task_id": "GEN-template-3-v0",
+   "family_id": "GEN-template-3",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "15172088a09a1f6ea89bee0158010d4666957484141e20a3b98d6f9eb35e1b3d"
+  },
+  {
+   "task_id": "GEN-template-3-v1",
+   "family_id": "GEN-template-3",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "71c9ceff1c23ee482e4397ad35c53548cdb4eda181a2f5f77c0f0c58fd0ac310"
+  },
+  {
+   "task_id": "GEN-template-3-v2",
+   "family_id": "GEN-template-3",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "909144adb97f041cc37e9aaea01a798ea9a73e7bf92732ca1b4acb7f5d2a55aa"
+  },
+  {
+   "task_id": "GEN-template-3-v3",
+   "family_id": "GEN-template-3",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "11f1f288f1754bac58b31a888b194cea85e375e2814d41a800c86fd1bc462610"
+  },
+  {
+   "task_id": "GEN-template-4-v0",
+   "family_id": "GEN-template-4",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "048b84de6877bbf61b37ae7c054b97a02cd1f0e49b434499ecd8f6fe8d9fc7ef"
+  },
+  {
+   "task_id": "GEN-template-4-v1",
+   "family_id": "GEN-template-4",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "0aa48211a3bcec87a5e110b027000d98b5913611caac00d50c95da4da301cd62"
+  },
+  {
+   "task_id": "GEN-template-4-v2",
+   "family_id": "GEN-template-4",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "2121619fffe388fc3c44abb7cbfbc92f79ac7001e3087dea00508b8d53be1b22"
+  },
+  {
+   "task_id": "GEN-template-4-v3",
+   "family_id": "GEN-template-4",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "e6249dc5dc92485370aad5175881db3d011b9df46383c77173d35609a960869f"
+  },
+  {
+   "task_id": "GEN-template-5-v0",
+   "family_id": "GEN-template-5",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "aed6cbbe621d94bd02a9b85bd636d371c2039ffdda7da09615ae28e8d19e51f7"
+  },
+  {
+   "task_id": "GEN-template-5-v1",
+   "family_id": "GEN-template-5",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "328a85e0aa53be8ba3a40bc076d0269a6fbba565e324e7c0a38a347e685a4604"
+  },
+  {
+   "task_id": "GEN-template-5-v2",
+   "family_id": "GEN-template-5",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "149e351abfbb6da8135fe5fc17576f1ee2496f272adfe61202f925d689c803ec"
+  },
+  {
+   "task_id": "GEN-template-5-v3",
+   "family_id": "GEN-template-5",
+   "status": "PASS",
+   "reason": "SEQUENCE_OR_COORDINATES",
+   "answer_sha256": "3a8edbec1d7c68d70b74ad8eef5a106e141105978b8a0aa99a423070f0edd80e"
+  }
+ ],
+ "value": 1.0,
+ "n": 24,
+ "passed": 24,
+ "body": {
+  "schema": "braun.m14.statement/1",
+  "statement_id": "ci-after-r1",
+  "predicate_kind": "MEASUREMENT",
+  "subject_sha256": "e23b50ad6da4fc36c0e3183b7c74a869ae19f5ca3b633287cb1794386d393500",
+  "cycle_id": "C-GEN-E24-1",
+  "operation_id": "op-1",
+  "source_event_id": "stop-e24",
+  "raw_evidence_sha256": "e23b50ad6da4fc36c0e3183b7c74a869ae19f5ca3b633287cb1794386d393500",
+  "candidate_sha256": "b43a0aa0bc26f64b298baf6d240dc944a211f3416edf44aa4565ecc6bd1b0038",
+  "evaluator_sha256": "37329b673095fc36f5abf5be0eaf3f67966533c28a7e8a6c22f91a26aaa91e5d",
+  "protocol_sha256": "5085572cd3d82cdd834a0d066a2573a1473c6edf9351253685cd484eb6bbab03",
+  "sample_manifest_sha256": "b8d068d37f6c9033cd24cf530c5c78b9f42f3a4e499c1d655237c90016127c7c",
+  "issuer_ref": "fc5df253a482079e",
+  "lineage_ref": "sedzia-ci-run-34988465135",
+  "issued_at": "2026-09-15T15:26:40Z",
+  "expires_at": "2026-09-22T15:26:40Z",
+  "phase": "AFTER",
+  "value": 1.0,
+  "unit": "accuracy",
+  "direction": "higher",
+  "n": 24,
+  "sample_ids": [
+   "GEN-template-0-v0",
+   "GEN-template-0-v1",
+   "GEN-template-0-v2",
+   "GEN-template-0-v3",
+   "GEN-template-1-v0",
+   "GEN-template-1-v1",
+   "GEN-template-1-v2",
+   "GEN-template-1-v3",
+   "GEN-template-2-v0",
+   "GEN-template-2-v1",
+   "GEN-template-2-v2",
+   "GEN-template-2-v3",
+   "GEN-template-3-v0",
+   "GEN-template-3-v1",
+   "GEN-template-3-v2",
+   "GEN-template-3-v3",
+   "GEN-template-4-v0",
+   "GEN-template-4-v1",
+   "GEN-template-4-v2",
+   "GEN-template-4-v3",
+   "GEN-template-5-v0",
+   "GEN-template-5-v1",
+   "GEN-template-5-v2",
+   "GEN-template-5-v3"
+  ],
+  "cost": 0,
+  "missingness": []
+ }
+}

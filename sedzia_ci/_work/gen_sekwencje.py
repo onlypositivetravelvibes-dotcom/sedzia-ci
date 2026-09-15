@@ -2,7 +2,7 @@
 """Solver GEN (genetyka sekwencyjna) — R0, pierwsza wersja Brauna, 09.09.2026.
 Wejście: `case["input"]` w schemacie braun.task/1 (kind, sequence, orientation, alphabet, table, frame, other).
 Wyjście: {"answer": ...}. Nie czyta wzorca Astry (`wzorzec_zdolnosci.py`) — to byłby przepisany klucz, nie solver."""
-SOLVER_ID = "gen_sekwencje/R0"
+SOLVER_ID = "gen_sekwencje/R1"
 COMP = str.maketrans("ACGT", "TGCA")
 _B = "TCAG"
 _AA = "FFLLSSSSYY**CC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG"
@@ -17,16 +17,14 @@ def solve(inp: dict) -> dict:
     if k == "transcribe_coding":
         return {"answer": s.replace("T", "U")}
     if k == "transcribe_template":
-        # nić matrycowa: RNA jest komplementarne do matrycy i antyrównoległe — czytam 5'→3', więc odwracam
-        return {"answer": s.translate(COMP)[::-1].replace("T", "U")}
+        # R1: zadanie podaje matrycę już w orientacji 3'→5' (orientation=3to5) — RNA to komplement pozycja po pozycji, BEZ odwracania
+        if inp.get("orientation") != "3to5":
+            raise ValueError("ORIENTATION")
+        return {"answer": s.translate(COMP).replace("T", "U")}
     if k == "translate":
-        f = int(inp.get("frame", 0)); out = []
-        for i in range(f, len(s) - 2, 3):
-            aa = CODONS[s[i:i + 3]]
-            if aa == "*":
-                break                      # translacja kończy się na kodonie STOP
-            out.append(aa)
-        return {"answer": "".join(out)}
+        # R1: „wykonaj operację zgodnie z tabelą" = przetłumacz WSZYSTKIE pełne kodony od ramki; STOP zapisany jako '*', nie ucina
+        f = int(inp.get("frame", 0))
+        return {"answer": "".join(CODONS[s[i:i + 3]] for i in range(f, len(s) - 2, 3))}
     if k == "orf":
         found = []; i = 0
         while i < len(s) - 2:
