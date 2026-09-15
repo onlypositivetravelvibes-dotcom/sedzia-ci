@@ -1,0 +1,13 @@
+{
+  "schema": "braun.m14.r2_delta_exam/1",
+  "base_exam": "EGZAMIN_FROZEN.json",
+  "cases": [
+    {"id":"R2-01","expected":"STOP_BIEGI prevents queue claim and cycle call","test":"test_stop_biegi_prevents_claim_and_cycle"},
+    {"id":"R2-02","expected":"two parallel apply attempts produce one APPLIED and one INSTALL_ALREADY_RECORDED","test":"test_parallel_apply_has_one_writer"},
+    {"id":"R2-03","expected":"evidence path is explicit and existing bytes are never overwritten","test":"test_evidence_requires_explicit_new_path_and_never_overwrites"},
+    {"id":"R2-04","expected":"start_tlo executable mode survives apply and rollback","test":"test_check_apply_and_rollback_preserve_existing_bytes"},
+    {"id":"R2-05","expected":"repeated or absent rollback is an idempotent no-op","tests":["test_check_apply_and_rollback_preserve_existing_bytes","test_rollback_without_record_is_idempotent_noop"]},
+    {"id":"R2-06","expected":"two external domains and lineages yield EFFECT_VERIFIED only after verification","test":"test_external_two_domain_effect_example"}
+  ],
+  "required_new_mutants": ["stop_biegi_ignored","installer_lock_removed","evidence_overwrite"]
+}

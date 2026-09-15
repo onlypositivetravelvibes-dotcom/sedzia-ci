@@ -1,0 +1,42 @@
+{
+  "schema": "braun.m14.r4_delta_exam/1",
+  "status": "FROZEN_BEFORE_R4_CODE",
+  "base_exam": "EGZAMIN_FROZEN.json",
+  "cases": [
+    {"id":"R4-01","expected":"no env keys => DIAGNOSTIC_ONLY","test":"test_policy_missing_both_keys_is_diagnostic_only"},
+    {"id":"R4-02","expected":"one env key => INDEPENDENT_EFFECT_DOMAINS_MISSING","test":"test_policy_one_key_is_still_diagnostic_only"},
+    {"id":"R4-03","expected":"two owner-env public keys create two distinct domains","test":"test_two_env_keys_create_protected_policy"},
+    {"id":"R4-04","expected":"Git copy cannot become a trust root","test":"test_git_key_is_not_a_trust_root"},
+    {"id":"R4-05","expected":"real Ed25519 DSSE verifies and altered payload fails","test":"test_real_ed25519_and_changed_payload"},
+    {"id":"R4-06","expected":"candidate signer cannot judge its own effect","test":"test_candidate_signed_effect_is_rejected"},
+    {"id":"R4-07","expected":"revoked and expired statements are refused","test":"test_r4_revoked_and_expired_real_signatures"},
+    {"id":"R4-08","expected":"two signed domains with matching cycle/subject produce EFFECT_VERIFIED","test":"test_two_real_signed_effects_are_verified"},
+    {"id":"R4-09","expected":"different cycle or subject is rejected","test":"test_two_effect_witnesses_must_match"},
+    {"id":"R4-10","expected":"plan trust fields cannot bypass envelope verification","test":"test_process_one_ignores_plan_trust_and_loads_signed_envelopes"},
+    {"id":"R4-11","expected":"statement path is confined to attest directory and ID-bound","test":"test_attestation_path_and_statement_id_are_confined"},
+    {"id":"R4-12","expected":"Astra public key/keyid match and no private key is packaged","test":"test_astra_public_key_file_has_matching_keyid_and_no_private_material"},
+    {"id":"R4-13","expected":"STOP_BIEGI still prevents claim and cycle","test":"test_stop_biegi_prevents_claim_and_cycle"},
+    {"id":"R4-14","expected":"worker cannot activate without current owner grant","test":"test_stale_or_missing_grant_rejected"},
+    {"id":"R4-15","expected":"cycle result never fabricates AKTYWUJ","test":"test_r4_cycle_reaches_nonactivating_terminal_only"},
+    {"id":"R4-16","expected":"same-model-family is recorded as residual, not independence proof","test":"test_r4_contract_records_same_model_residual"},
+    {"id":"R4-17","expected":"fresh hidden holdout remains NOT_RUN","test":"test_r4_contract_does_not_claim_fresh_holdout_or_green"}
+  ],
+  "required_new_mutants": [
+    "env_policy_fallback_to_git",
+    "single_domain_accepted",
+    "ed25519_verify_bypassed",
+    "candidate_domain_allowed",
+    "statement_path_escape_allowed",
+    "plan_trust_injection",
+    "effect_subject_mismatch_ignored",
+    "private_key_packaged"
+  ],
+  "host_parts": {
+    "natural_restart": "NOT_RUN",
+    "fresh_hidden_holdout": "NOT_RUN",
+    "brother_key_and_statement": "NOT_RUN",
+    "owner_env_injection": "NOT_RUN",
+    "actual_E24_cycle": "NOT_RUN",
+    "owner_activation_grant": "NOT_ISSUED"
+  }
+}

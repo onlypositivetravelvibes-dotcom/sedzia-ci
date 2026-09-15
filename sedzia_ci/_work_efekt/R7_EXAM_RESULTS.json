@@ -1,0 +1,29 @@
+{
+  "schema": "braun.m14.r7_exam_results/1",
+  "source_message_id": "M14-R6-ODBIOR-1",
+  "local_tests": {
+    "passed": 57,
+    "failed": 0
+  },
+  "mutants": {
+    "killed": 29,
+    "total": 29,
+    "new": "r7_astra_effect_witness_removed"
+  },
+  "delta_cases": {
+    "PASS_LOCAL": [
+      "R7-E1",
+      "R7-E2",
+      "R7-E3",
+      "R7-E4",
+      "R7-E5"
+    ]
+  },
+  "decision": "Astra is mandatory in every EFFECT quorum",
+  "brat_plus_sedzia_ci_without_astra": "UNPROVEN:ASTRA_EFFECT_WITNESS_MISSING",
+  "host_tests": "NOT_RUN",
+  "signed_ci_measurement": "NOT_VERIFIED",
+  "m14_all_green": false,
+  "m15_gate": "BLOCKED_UNTIL_VERIFIED_FULL_M14_GREEN",
+  "local_evidence": "evidence/R7_LOCAL_RESULTS_02.json"
+}

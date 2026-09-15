@@ -1,0 +1,39 @@
+{
+  "schema": "braun.m14.r6_delta_exam/1",
+  "frozen_before_code": "2026-09-15T08:38:00Z",
+  "source_message_id": "M14-R5-ODBIOR-1",
+  "scope": "Add an explicit, independent sedzia-ci owner-env trust slot without weakening the two-domain threshold",
+  "tests": [
+    {
+      "id": "R6-E1",
+      "expect": "BRAUN_SEDZIA_CI_PUBKEY is normalized and mapped only to domain sedzia-ci"
+    },
+    {
+      "id": "R6-E2",
+      "expect": "Astra plus either Brat or sedzia-ci is READY; Astra alone, sedzia-ci alone, or Brat plus sedzia-ci without Astra remains DIAGNOSTIC_ONLY"
+    },
+    {
+      "id": "R6-E3",
+      "expect": "All present public keys must be valid and pairwise distinct; a malformed or duplicated third key fails closed with an explicit reason"
+    },
+    {
+      "id": "R6-E4",
+      "expect": "A sedzia-ci signature is accepted only when lineage_ref starts with sedzia-ci-run- and is rejected otherwise"
+    },
+    {
+      "id": "R6-E5",
+      "expect": "Two signed EFFECT statements remain mandatory and must have distinct domains, lineages, statement ids, matching cycle and matching subject"
+    },
+    {
+      "id": "R6-E6",
+      "expect": "The R5 Astra plus Brat path remains READY and EFFECT_VERIFIED"
+    },
+    {
+      "id": "R6-E7",
+      "expect": "The full frozen R5 suite and mutants remain green; PREPARE_ONLY, STOP, transactional installer, evidence create-only and rollback behavior are unchanged"
+    }
+  ],
+  "host_result": "NOT_RUN",
+  "sedzia_ci_operational_attestation": "NOT_VERIFIED",
+  "full_m14_green": false
+}

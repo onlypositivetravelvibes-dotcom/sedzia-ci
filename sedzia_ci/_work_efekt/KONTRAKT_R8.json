@@ -1,0 +1,12 @@
+{
+  "schema": "braun.m14.r8_delta_contract/1",
+  "source": "3bbff40c863eb099a157b790c66fd12a121f295f",
+  "requirements": [
+    "explicit astra-ci owner-env slot with astra-ci-run- lineage",
+    "astra or astra-ci mandatory plus brat or sedzia-ci",
+    "pairwise distinct keys; published CI identities cannot occupy other slots",
+    "parameterized E24 replay with pinned solver and explicit phase",
+    "PREPARE_ONLY; no grant; host acceptance pending"
+  ],
+  "residual": "astra-ci = kod Astry pod administracją Rafała na GitHub Actions; wspólna administracja z sedzia-ci, osobne klucze i sekrety; nie dowód niezależności administracyjnej"
+}

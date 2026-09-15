@@ -1,0 +1,46 @@
+{
+  "schema": "braun.m14.r6_exam_results/1",
+  "local_tests": {
+    "passed": 55,
+    "failed": 0
+  },
+  "mutants": {
+    "killed": 28,
+    "total": 28,
+    "r6_new_killed": 2,
+    "r6_new_total": 2
+  },
+  "r6_cases": {
+    "PASS_LOCAL": [
+      "R6-E1",
+      "R6-E2",
+      "R6-E3",
+      "R6-E4",
+      "R6-E5",
+      "R6-E6",
+      "R6-E7"
+    ],
+    "HOST_NOT_RUN": [
+      "R6_UPGRADE_FROM_R5",
+      "R6_ROLLBACK_TO_R5"
+    ]
+  },
+  "installation_r5_host": "REPORTED_ACCEPTED_AND_INSTALLED_BY_BRAUN",
+  "r5_report_ack": "https://github.com/braun-systems/KDP-lustro/pull/1#issuecomment-5677220342",
+  "sedzia_ci_review": {
+    "source_commit": "0efb891d5cbc5f7b3c9e6ca3dc66d3a7212164e0",
+    "workflow_dispatch_runs_observed": 0,
+    "signed_attestations_observed": 0,
+    "public_key_artifact_observed": false,
+    "branch_protected": false,
+    "operational_status": "NOT_VERIFIED"
+  },
+  "protected_verifier_code": "PASS_LOCAL_REAL_ED25519",
+  "operational_two_domain_effect": "NOT_RUN",
+  "actual_cycle": "NOT_RUN",
+  "natural_restart": "NOT_RUN",
+  "fresh_hidden_holdout": "NOT_RUN",
+  "owner_activation_grant": "NOT_ISSUED",
+  "m14_all_green": false,
+  "m15_gate": "BLOCKED_UNTIL_VERIFIED_FULL_M14_GREEN"
+}

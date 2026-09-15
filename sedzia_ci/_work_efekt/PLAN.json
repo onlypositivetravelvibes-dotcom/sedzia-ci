@@ -1,0 +1,59 @@
+{
+ "schema": "m14.cycle_plan/1",
+ "source_event_id": "stop-05809eb356525f0cca035cb18b1485af52c478bf1196284d7f5f02b16e94afd8",
+ "cycle_id": "M14-E24-GEN-1",
+ "domain": "GEN",
+ "g0": "G-0b36f708ce4f",
+ "g1": "G-b43a0aa0bc26",
+ "owner_record_id": "R-2026-09-09-solver-gen",
+ "grant_ref": "owner:R-2026-09-09-solver-gen:G-b43a0aa0bc26",
+ "r0_path": "products/quorum-brain/runtime/solvers/gen_sekwencje_R0.py",
+ "r1_path": "products/quorum-brain/runtime/solvers/gen_sekwencje.py",
+ "artifact_sha256": {
+  "r0": "0b36f708ce4f23264cee0f6a56663a6b75603acc33da473e2658b89e6b88749f",
+  "r1": "b43a0aa0bc26f64b298baf6d240dc944a211f3416edf44aa4565ecc6bd1b0038"
+ },
+ "sample_ids": [
+  "GEN-template-0-v0",
+  "GEN-template-0-v1",
+  "GEN-template-0-v2",
+  "GEN-template-0-v3",
+  "GEN-template-1-v0",
+  "GEN-template-1-v1",
+  "GEN-template-1-v2",
+  "GEN-template-1-v3",
+  "GEN-template-2-v0",
+  "GEN-template-2-v1",
+  "GEN-template-2-v2",
+  "GEN-template-2-v3",
+  "GEN-template-3-v0",
+  "GEN-template-3-v1",
+  "GEN-template-3-v2",
+  "GEN-template-3-v3",
+  "GEN-template-4-v0",
+  "GEN-template-4-v1",
+  "GEN-template-4-v2",
+  "GEN-template-4-v3",
+  "GEN-template-5-v0",
+  "GEN-template-5-v1",
+  "GEN-template-5-v2",
+  "GEN-template-5-v3"
+ ],
+ "witnesses": [
+  {
+   "event_id": "stop-05809eb356525f0cca035cb18b1485af52c478bf1196284d7f5f02b16e94afd8",
+   "ref": "pomiar:ci-before-r0:sedzia-ci-run-34972054831",
+   "task": "GEN-template-2-v0"
+  }
+ ],
+ "candidate_domain": "candidate-gen",
+ "effect_subject_sha256": "b18629c4f529c7d2643d381dec7eb2673168d18eba1bc014ac7b65b69cd76f48",
+ "effect_statement_ids": [
+  "effect-astra-ci-1",
+  "effect-sedzia-ci-1"
+ ],
+ "activation_mode": "PREPARE_ONLY",
+ "rollback_after_test": true,
+ "note": "plan Brauna 15.09.2026; PREPARE_ONLY; subject = formula R8 Astry: sha256(canonical({cycle_id,domain:GEN,candidate_sha256:R1,sample_manifest_sha256:E24}))",
+ "plan_sha256": "1afc137486b1416c21324bc64b048987a51343dd3770472f9e6ae2b3e48b3ae2"
+}

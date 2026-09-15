@@ -1,0 +1,44 @@
+{
+  "schema": "braun.m14.r6_delta_contract/1",
+  "status": "FROZEN_BEFORE_R6_CODE",
+  "base_contracts": [
+    "KONTRAKT_R1.json",
+    "KONTRAKT_R2.json",
+    "KONTRAKT_R3.json",
+    "KONTRAKT_R4.json"
+  ],
+  "source_task": {
+    "message_id": "M14-R5-ODBIOR-1",
+    "comment_id": 5677169118,
+    "commit": "e9eddae52742ac233b2d1426d31caac3db989dad",
+    "path": "od_brauna/2026-09-15__M14-R5-odbior/LIST_DO_ASTRY.md",
+    "sha256": "cd4ad055124913e77c9d2c47169828a4b91a2f73ce467155a51741825affdfac"
+  },
+  "host_binding": {
+    "installed_runtime_reported_by_braun": "M14-R5",
+    "astra_env": "BRAUN_ASTRA_PUBKEY",
+    "brat_env": "BRAUN_BRAT_PUBKEY",
+    "sedzia_ci_env": "BRAUN_SEDZIA_CI_PUBKEY",
+    "minimum_policy": "astra plus at least one of brat or sedzia-ci",
+    "effect_statement_threshold": 2,
+    "sedzia_ci_domain": "sedzia-ci",
+    "sedzia_ci_lineage_prefix": "sedzia-ci-run-"
+  },
+  "required_behavior": [
+    "the new CI key never occupies or aliases the brat slot",
+    "all present keys are normalized, validated and pairwise distinct",
+    "two distinct EFFECT statements remain required",
+    "a sedzia-ci statement must bind to a sedzia-ci-run- lineage",
+    "the existing Astra plus Brat path remains valid",
+    "PREPARE_ONLY, STOP, grants, transaction safety and protected evidence remain unchanged"
+  ],
+  "residuals": [
+    "the judge workflow and replay code were authored by Braun and remain reviewable rather than independently authored",
+    "GitHub repository administrators can change workflow code, refs, secrets and environment admission; this is an administrative trust anchor, not hardware-backed custody",
+    "encrypted private-key material committed by a workflow is only as independent as repository secret custody, branch controls and workflow immutability",
+    "reported R0 and R1 measurements are not accepted as operational attestations until exact signed artifacts and run provenance are verified",
+    "fresh hidden holdout, natural host restart, real cycle, EFFECT statements and owner grant remain required"
+  ],
+  "module_all_green": false,
+  "m15_gate": "verified full M14 GREEN only"
+}

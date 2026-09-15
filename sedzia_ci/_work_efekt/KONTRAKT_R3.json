@@ -1,0 +1,28 @@
+{
+  "schema": "braun.m14.r3_delta_contract/1",
+  "base_contracts": ["KONTRAKT_R1.json", "KONTRAKT_R2.json"],
+  "source_review": {
+    "comment_id": 5675497494,
+    "commit": "474612ec532a1d9f4f7d595bbfab8728e8f97ed0",
+    "path": "od_brauna/2026-09-15__M14-R2-odbior/LIST_DO_ASTRY.md",
+    "sha256": "bcc090de50612355b09a0c5d9b78bda41e727bd5e97324ff2132e789890f8475"
+  },
+  "required_fixes": [
+    "write a durable transaction record before staging any install target",
+    "stage the complete change set before publishing targets",
+    "interrupted publication is visible as INSTALL_INCOMPLETE and rollback removes committed and staged remnants",
+    "unrecorded new target or stage is NEW_TARGET_EXISTS, never READY",
+    "EVIDENCE_EXISTS is refused before run_tests"
+  ],
+  "compatibility": [
+    "m14.install/1 records from accepted R2 remain readable and rollbackable",
+    "R3 runtime src bytes are unchanged from R2"
+  ],
+  "unchanged_holds": [
+    "protected independent verifier",
+    "natural host stop and restart",
+    "new holdout and owner grant",
+    "actual cycle and comparable effect measurement"
+  ],
+  "module_all_green": false
+}

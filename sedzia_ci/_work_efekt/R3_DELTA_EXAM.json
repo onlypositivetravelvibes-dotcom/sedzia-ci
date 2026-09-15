@@ -1,0 +1,12 @@
+{
+  "schema": "braun.m14.r3_delta_exam/1",
+  "base_exam": "EGZAMIN_FROZEN.json",
+  "cases": [
+    {"id":"R3-01","expected":"unrecorded new target is HOLD NEW_TARGET_EXISTS","test":"test_unrecorded_new_target_is_visible_hold"},
+    {"id":"R3-02","expected":"interrupted commit is INSTALL_INCOMPLETE and rollback removes targets and stages","test":"test_interrupted_commit_is_tracked_and_rollback_cleans_targets_and_stages"},
+    {"id":"R3-03","expected":"accepted R2 install record remains readable and rollbackable","test":"test_r2_install_record_remains_readable_and_rollbackable"},
+    {"id":"R3-04","expected":"tampered staged path cannot escape the host root","test":"test_tampered_stage_path_cannot_escape_root"},
+    {"id":"R3-05","expected":"existing evidence is refused before run_tests","test":"test_existing_evidence_refuses_before_test_run"}
+  ],
+  "required_new_mutants": ["installer_orphan_ignored", "installer_commit_skipped", "evidence_preflight_removed", "record_path_escape_allowed", "record_stage_parent_unchecked"]
+}

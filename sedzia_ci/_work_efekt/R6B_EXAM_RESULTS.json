@@ -1,0 +1,35 @@
+{
+  "schema": "braun.m14.r6b_exam_results/1",
+  "source_message_id": "M14-SEDZIA-CI-KLUCZ-1",
+  "local_tests": {
+    "passed": 56,
+    "failed": 0
+  },
+  "mutants": {
+    "killed": 28,
+    "total": 28
+  },
+  "delta_cases": {
+    "PASS_LOCAL": [
+      "R6B-E1",
+      "R6B-E2",
+      "R6B-E3",
+      "R6B-E4",
+      "R6B-E5",
+      "R6B-E6",
+      "R6B-E7"
+    ]
+  },
+  "public_key_keyid": "fc5df253a482079e",
+  "public_key_read": "PASS_AUTHORIZED_CONNECTOR",
+  "owner_env_slot": "BRAUN_SEDZIA_CI_PUBKEY",
+  "key_generation_run": "VERIFIED_SUCCESS",
+  "measurement_run": "NOT_RUN",
+  "signed_dsse": "NOT_PRESENT",
+  "host_egress": "UNPROVEN",
+  "branch_protection": "UNPROVEN",
+  "host_tests": "NOT_RUN",
+  "m14_all_green": false,
+  "m15_gate": "BLOCKED_UNTIL_VERIFIED_FULL_M14_GREEN",
+  "local_evidence": "evidence/R6B_LOCAL_RESULTS_01.json"
+}

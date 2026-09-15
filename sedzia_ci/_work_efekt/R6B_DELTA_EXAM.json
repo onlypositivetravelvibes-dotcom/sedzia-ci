@@ -1,0 +1,39 @@
+{
+  "schema": "braun.m14.r6b_delta_exam/1",
+  "frozen_before_change": "2026-09-15T12:24:13Z",
+  "source_message_id": "M14-SEDZIA-CI-KLUCZ-1",
+  "scope": "Bind the published Sędzia CI public key to the existing explicit sedzia-ci slot without accepting the temporary Brat alias or claiming an unrun measurement",
+  "tests": [
+    {
+      "id": "R6B-E1",
+      "expect": "The exact key artifact at output commit 18f5ea47c0a53bf72a6fc62f705ff37dcb223749 decodes to Ed25519 keyid fc5df253a482079e"
+    },
+    {
+      "id": "R6B-E2",
+      "expect": "The published key is mapped to domain sedzia-ci only when owner-admitted as BRAUN_SEDZIA_CI_PUBKEY, with lineage prefix sedzia-ci-run-"
+    },
+    {
+      "id": "R6B-E3",
+      "expect": "The current BRAUN_BRAT_PUBKEY label in the external key file is recorded as a temporary integration defect and is not evidence of Brat provenance"
+    },
+    {
+      "id": "R6B-E4",
+      "expect": "Workflow code commit and output commit remain distinct and immutable in the evidence record"
+    },
+    {
+      "id": "R6B-E5",
+      "expect": "Key-generation run success is not upgraded to MEASUREMENT, DSSE, EFFECT or full M14 GREEN"
+    },
+    {
+      "id": "R6B-E6",
+      "expect": "Connector public-raw readability is recorded separately from unproven production-host egress"
+    },
+    {
+      "id": "R6B-E7",
+      "expect": "Mutable branch inputs, unpinned actions/dependency, write permission and unproven branch protection remain explicit residuals"
+    }
+  ],
+  "host_result": "NOT_RUN",
+  "signed_measurement": "NOT_VERIFIED",
+  "full_m14_green": false
+}

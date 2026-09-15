@@ -1,0 +1,35 @@
+{
+  "schema": "braun.m14.r7_delta_exam/1",
+  "frozen_at_utc": "2026-09-15T12:52:00Z",
+  "contract": "KONTRAKT_R7.json",
+  "scope": "Close the R6 quorum ambiguity by requiring Astra in every EFFECT quorum",
+  "cases": [
+    {
+      "id": "R7-E1",
+      "input": "valid Astra and Brat EFFECT statements",
+      "expect": "EFFECT_VERIFIED with domains astra and brat"
+    },
+    {
+      "id": "R7-E2",
+      "input": "valid Astra and sedzia-ci EFFECT statements with accepted CI lineage",
+      "expect": "EFFECT_VERIFIED with domains astra and sedzia-ci"
+    },
+    {
+      "id": "R7-E3",
+      "input": "all three keys admitted but bundle contains only Brat and sedzia-ci statements",
+      "expect": "UNPROVEN with reason ASTRA_EFFECT_WITNESS_MISSING"
+    },
+    {
+      "id": "R7-E4",
+      "input": "mutant removes the mandatory-Astra assessment guard",
+      "expect": "mutant killed by R7-E3"
+    },
+    {
+      "id": "R7-E5",
+      "input": "full frozen R6 suite and mutants",
+      "expect": "all tests pass and all earlier mutants remain killed"
+    }
+  ],
+  "host_measurement": "NOT_RUN",
+  "module_all_green": false
+}

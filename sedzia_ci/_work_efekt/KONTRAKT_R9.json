@@ -1,0 +1,28 @@
+{
+  "schema": "braun.m14.r9_contract/1",
+  "source": "ca23c63f25ac1bd3e24d8ad8d95a7af885880bbb",
+  "base_runtime": "M14-R8_UNCHANGED",
+  "mode": "EFFECT",
+  "checks": [
+    "real signatures and same runner",
+    "distinct before/after statements and evidence",
+    "pinned R0/R1 and E24 contract",
+    "plan canonical hash and computed subject",
+    "PREPARE_ONLY",
+    "output identity owner-env and plan allowlist"
+  ],
+  "scope": "E24 accuracy delta only; no activation or administrative independence claim",
+  "operation_id": "explicit plan.operation_id when present; otherwise plan.cycle_id (plan input has no operation_id)",
+  "input_cycle_binding": "pair must have same measurement cycle; output cycle comes from pinned plan and preserves measurement_cycle_id",
+  "negative_cases": [
+    "swapped phases",
+    "cross domain",
+    "wrong subject",
+    "tampered signature",
+    "reused evidence",
+    "changed E24",
+    "wrong output issuer",
+    "ACTIVATE",
+    "bad plan hash"
+  ]
+}

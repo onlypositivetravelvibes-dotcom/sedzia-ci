@@ -1,0 +1,204 @@
+{
+  "baseline_returncode": 0,
+  "host_tests": "NOT_RUN",
+  "module_all_green": false,
+  "mutants": [
+    {
+      "killed": true,
+      "name": "r9_runner_domain",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r9_subject",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r9_plan_hash",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r9_signature",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r9_r0r1",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r9_issuer",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r9_prepare",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r8_ci_slot_removed",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r8_published_key_alias_allowed",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "candidate_as_judge",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "scorer_mismatch_ignored",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "unsigned_is_enough",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "reuse_after",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "queue_last_write_wins",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "trust_gate_removed",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "resume_skipped",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "unproven_banner_green",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "stop_biegi_ignored",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "installer_lock_removed",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "evidence_overwrite",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "installer_orphan_ignored",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "installer_commit_skipped",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "evidence_preflight_removed",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "record_path_escape_allowed",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "record_stage_parent_unchecked",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r4_git_policy_accepted",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r6_astra_anchor_removed",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r4_signature_bypassed",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r4_filename_id_unbound",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r4_effect_plan_unbound",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r4_self_reported_trust_used",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r4_prepare_only_removed",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r4_activation_port_open",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r5_owner_key_not_normalized",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r5_bad_owner_key_accepted",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r6_sedzia_slot_removed",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r6_lineage_policy_removed",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r7_astra_effect_witness_removed",
+      "returncode": 1
+    }
+  ],
+  "mutants_killed": 38,
+  "mutants_total": 38,
+  "schema": "m14.r9.local_results/1",
+  "seconds": 0.488,
+  "stderr_sha256": "c2bb1118f38bbe67dee6bde6c7532858c74392d24d43cecc5a37ffc6f933ace7",
+  "stdout_sha256": "867f1f5fff32a4265f59965bf3b312c95d6cc8bdd705da3f4e28f618d42679c3",
+  "tests_discovered": 70
+}

@@ -1,0 +1,159 @@
+{
+  "baseline_returncode": 0,
+  "host_tests": "NOT_RUN",
+  "module_all_green": false,
+  "mutants": [
+    {
+      "killed": true,
+      "name": "candidate_as_judge",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "scorer_mismatch_ignored",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "unsigned_is_enough",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "reuse_after",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "queue_last_write_wins",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "trust_gate_removed",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "resume_skipped",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "unproven_banner_green",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "stop_biegi_ignored",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "installer_lock_removed",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "evidence_overwrite",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "installer_orphan_ignored",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "installer_commit_skipped",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "evidence_preflight_removed",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "record_path_escape_allowed",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "record_stage_parent_unchecked",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r4_git_policy_accepted",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r6_astra_anchor_removed",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r4_signature_bypassed",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r4_filename_id_unbound",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r4_effect_plan_unbound",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r4_self_reported_trust_used",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r4_prepare_only_removed",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r4_activation_port_open",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r5_owner_key_not_normalized",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r5_bad_owner_key_accepted",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r6_sedzia_slot_removed",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r6_lineage_policy_removed",
+      "returncode": 1
+    },
+    {
+      "killed": true,
+      "name": "r7_astra_effect_witness_removed",
+      "returncode": 1
+    }
+  ],
+  "mutants_killed": 29,
+  "mutants_total": 29,
+  "schema": "m14.r7.local_results/1",
+  "seconds": 0.309,
+  "stderr_sha256": "90d87ac7391b58a7dfc6183e53b616d9e26bbf8b64eb8507f3783e272a9d95e3",
+  "stdout_sha256": "7d59d15df5b760294bbbb2e6c579d2f18557fd6e71bb7ba6e0dab61e032851f5",
+  "tests_discovered": 57
+}

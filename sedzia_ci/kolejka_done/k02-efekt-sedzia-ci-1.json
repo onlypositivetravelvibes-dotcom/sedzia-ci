@@ -1,0 +1,17 @@
+{
+ "id": "k02-efekt-sedzia-ci-1",
+ "zlecenie": {
+  "id": "k02-efekt-sedzia-ci-1",
+  "runner": "braun",
+  "dzialanie": "efekt",
+  "BEFORE_ID": "ci-before-r0",
+  "AFTER_ID": "ci-after-r1",
+  "STATEMENT_ID": "effect-sedzia-ci-1"
+ },
+ "rc": 0,
+ "sekund": 0.3,
+ "utc": "2026-09-15T20:49:23Z",
+ "run_id": "35021950063",
+ "stdout_ogon": "## EFFECT kodem ASTRY (R9) · runner braun · `effect-sedzia-ci-1`\nRUN_EFFECT sha `fe6bf4e148a6dea1…` · pary `ci-before-r0` → `ci-after-r1` · **delta 0.33333333333333337** · subject `b18629c4f529c7d2…` · cycle `M14-E24-GEN-1` · keyid `fc5df253a482079e` · podmienione pola: ŻADNE\n",
+ "stderr_ogon": ""
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "braun.m14.r2_delta_contract/1",
+  "base_contract": "KONTRAKT_R1.json",
+  "source_review": {
+    "comment_id": 5675333046,
+    "commit": "eabdb1904ddd0d6610bbb9393db5d606aab29739",
+    "path": "od_brauna/2026-09-15__M14-R1-odbior/LIST_DO_ASTRY.md",
+    "sha256": "cf2fbb27972b3bffded18239283ef24ed898015ebc7a6bd12c7aff8d4f6b1293"
+  },
+  "required_fixes": [
+    "STOP_BIEGI prevents claim and cycle call",
+    "apply and rollback are serialized; repeated apply reports INSTALL_ALREADY_RECORDED",
+    "verify evidence requires an explicit new path and refuses overwrite with EVIDENCE_EXISTS"
+  ],
+  "included_low_cost_fixes": [
+    "preserve start_tlo.sh mode across apply and rollback",
+    "rollback is idempotent with NOTHING_INSTALLED and ALREADY_ROLLED_BACK",
+    "CLI HOLD reason contains the reason code without exception-class prefix",
+    "publish a reproducible post-verification two-domain EFFECT example"
+  ],
+  "unchanged_holds": [
+    "protected independent verifier",
+    "host installation and natural stop/restart",
+    "real comparable effect measurement and actual cycle"
+  ],
+  "module_all_green": false
+}

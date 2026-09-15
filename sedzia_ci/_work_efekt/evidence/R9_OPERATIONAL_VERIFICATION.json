@@ -1,0 +1,44 @@
+{
+  "checked_at": "2026-09-15T15:46:13Z",
+  "pairs": [
+    {
+      "domain": "astra-ci",
+      "before_status": "VERIFIED",
+      "after_status": "VERIFIED",
+      "before_id": "ci-astra-r0",
+      "after_id": "ci-astra-r1b",
+      "before_value": 0.6666666666666666,
+      "after_value": 1.0,
+      "delta": 0.33333333333333337,
+      "computed_subject": "b18629c4f529c7d2643d381dec7eb2673168d18eba1bc014ac7b65b69cd76f48",
+      "evidence_envelopes": {
+        "before": "e45dae886721023316aedd7fdc7ccb013660100b45703accf6c87d94fb2223a8",
+        "after": "ceaa71efd4126d032c68cd83978feffa97a7ed90ffbe899f1c4845a654b706aa"
+      },
+      "operation_id": "M14-E24-GEN-1",
+      "measurement_cycle_id": "M14-E24-GEN-1",
+      "plan_cycle_id": "M14-E24-GEN-1"
+    },
+    {
+      "domain": "sedzia-ci",
+      "before_status": "VERIFIED",
+      "after_status": "VERIFIED",
+      "before_id": "ci-before-r0",
+      "after_id": "ci-after-r1",
+      "before_value": 0.6666666666666666,
+      "after_value": 1.0,
+      "delta": 0.33333333333333337,
+      "computed_subject": "b18629c4f529c7d2643d381dec7eb2673168d18eba1bc014ac7b65b69cd76f48",
+      "evidence_envelopes": {
+        "before": "641c15c68b27c6bfe282442fa0a103511e22dad1c07ea56de23cc83359da5faa",
+        "after": "f19688771bd5cf4a6196f32dd6d90a5470fb2f4ea7fe8b4a02c1605958a500fb"
+      },
+      "operation_id": "M14-E24-GEN-1",
+      "measurement_cycle_id": "C-GEN-E24-1",
+      "plan_cycle_id": "M14-E24-GEN-1"
+    }
+  ],
+  "signing": "NOT_RUN",
+  "host_runtime": "R8 unchanged; R9 is offline producer",
+  "module_all_green": false
+}

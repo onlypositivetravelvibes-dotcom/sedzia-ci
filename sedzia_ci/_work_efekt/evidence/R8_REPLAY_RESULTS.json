@@ -1,0 +1,25 @@
+[
+  {
+    "phase": "BEFORE",
+    "solver": "r0",
+    "passed": 16,
+    "n": 24,
+    "candidate_sha256": "0b36f708ce4f23264cee0f6a56663a6b75603acc33da473e2658b89e6b88749f",
+    "value": 0.6666666666666666,
+    "env_fields_verified": true
+  },
+  {
+    "phase": "AFTER",
+    "solver": "r1",
+    "passed": 24,
+    "n": 24,
+    "candidate_sha256": "b43a0aa0bc26f64b298baf6d240dc944a211f3416edf44aa4565ecc6bd1b0038",
+    "value": 1.0,
+    "env_fields_verified": true
+  },
+  {
+    "phase": "BEFORE",
+    "solver": "r1",
+    "result": "REJECTED_PHASE_SOLVER_MISMATCH"
+  }
+]

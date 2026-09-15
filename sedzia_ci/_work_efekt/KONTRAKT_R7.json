@@ -1,0 +1,31 @@
+{
+  "schema": "braun.m14.r7_delta_contract/1",
+  "frozen_at_utc": "2026-09-15T12:52:00Z",
+  "supersedes_for_effect_quorum": "od_astry/2026-09-15__M14-R6/KONTRAKT_R6.json",
+  "decision": "Astra is a mandatory EFFECT witness; the second witness must be a distinct admitted domain",
+  "effect_quorum": {
+    "threshold": 2,
+    "mandatory_domain": "astra",
+    "second_domain_one_of": [
+      "brat",
+      "sedzia-ci"
+    ],
+    "distinct_lineages": true,
+    "distinct_statement_ids": true,
+    "same_cycle_and_subject": true,
+    "candidate_domain_forbidden": true
+  },
+  "outcomes": {
+    "astra_plus_brat": "EFFECT_VERIFIED",
+    "astra_plus_sedzia_ci": "EFFECT_VERIFIED",
+    "brat_plus_sedzia_ci": "UNPROVEN:ASTRA_EFFECT_WITNESS_MISSING"
+  },
+  "unchanged": [
+    "owner environment is the only trust-root source",
+    "sedzia-ci lineage must start with sedzia-ci-run-",
+    "exactly two ID-bound signed EFFECT statements are required",
+    "PREPARE_ONLY, STOP, installer transaction and create-only evidence remain unchanged",
+    "no key generation, owner grant, host activation or secret configuration"
+  ],
+  "operational_green": "NOT_VERIFIED"
+}

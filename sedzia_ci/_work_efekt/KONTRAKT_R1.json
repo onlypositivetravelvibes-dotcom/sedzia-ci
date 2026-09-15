@@ -1,0 +1,61 @@
+{
+  "schema": "braun.m14.r1_contract/1",
+  "status": "FROZEN_BEFORE_CODE",
+  "source": {
+    "commit": "4d83e173fa8c5d2ba1600c19ccbd2f81954f2880",
+    "path": "od_brauna/2026-09-15__M14-R1-wejscie/WEJSCIE_R1.md",
+    "sha256": "e7b68365f36825c53f537cd96a95be352fc98d26fdb4d15658979a416deca15c",
+    "host_commit": "5537b3a2f5f4b4c45b04e49d088aaf59a4d7b2d0"
+  },
+  "scope": "R1 queue + narrow caller + trust diagnostics; no production activation",
+  "artifact": {
+    "domain": "GEN",
+    "path": "products/quorum-brain/runtime/solvers/gen_sekwencje.py",
+    "sha256": "b43a0aa0bc26f64b298baf6d240dc944a211f3416edf44aa4565ecc6bd1b0038"
+  },
+  "host_pins": {
+    "products/quorum-brain/runtime/uczenie.py": "ff937d5471828d9e52f185fa0ba22f46ed45789b74e166bbade70c81f552e86d",
+    "products/quorum-brain/runtime/uczenie_porty.py": "a9d76069c355cdd4bd9268f7b7678ab6ccd67e1b000b198eec6c347d44235226",
+    "products/quorum-brain/runtime/samonaprawa_cykl.py": "5ac95950f82ab2b26d714dba410375f5b838ea2711adf43d84fc23323f034444",
+    "products/quorum-brain/runtime/zdolnosci_pomiar.py": "f4d99203c16d5c7cb92054a9c390cb4bb39ca8e1dc38dda5ed2f73408d8c41b7",
+    "products/quorum-brain/runtime/publikacja.py": "d959cdb2f30d2b369e0b4668a96384ebaab873f81d5f37686ea8901183a1460d",
+    "products/quorum-brain/runtime/lekcje.py": "817cd43f10ce28737d05af8c23b176af7e3c7dac43d669cc37fe57cf4ae0f318",
+    "products/quorum-brain/runtime/lekcje_magazyn.py": "618681c9881116a80223b57e67af89dcc339a29037a2fecb6044a5ce423c5368",
+    "products/quorum-brain/runtime/m13_poswiadczenia.py": "b02f42ddf0a1c93aae8b326d488dbe89238a34abceeea3510bcaff6cd1cbb6f2",
+    "products/quorum-brain/runtime/m13_review.py": "fc58b6852a9069d8842f9f07d19de5b12c39a76040629c9c6d521874ab61920a",
+    ".claude/hooks/m13_hak.py": "b43b69d27e168534fdc731aa8e3e266c2496d682b8150a00b077051226da7b56",
+    ".claude/hooks/lekcje_hak.py": "e1c2ce1fc69e83c4bc55366ad8c1bf897358b5057f792d152beb7735d35c648c",
+    "braun_boot/start_tlo.sh": "225715c2d3b80f8a7ee0e5334aa14196f52e71ca135660a624f47243ca7d2a69",
+    ".claude/settings.json": "aa6cc8369712536884c9ac19b6beb76d31e2dc9b22fcbcd0021dabb69b5aad99"
+  },
+  "integration": {
+    "launcher_after": "m13-worker",
+    "launcher_before": "przyrzady-p1p8",
+    "timeout_seconds": 120,
+    "stop_hook_group_index": 6,
+    "stop_hook_timeout_seconds": 2,
+    "hook_action": "enqueue only",
+    "existing_hooks_mutated": false
+  },
+  "holdout": {
+    "unit": "GEN-template-k",
+    "dev_clusters": [0, 1, 2],
+    "shadow_clusters": [3, 4],
+    "final_clusters": [5],
+    "variants_per_cluster": 4,
+    "status": "PROPOSED_SPLIT_FROZEN_R1_NOT_YET_HOST_SEALED",
+    "reuse_rule": "FINAL is opened once; any next optimization requires a new holdout"
+  },
+  "trust": {
+    "host_author_judge_writer_separated": false,
+    "status": "HOLD_DIAGNOSTIC_ONLY",
+    "effect_verified_requires": "two verified EFFECT statements from distinct protected domains and lineages, neither candidate domain",
+    "astra_may_attest": ["BLOB_FACT", "manifest/protocol consistency independently recomputed from immutable bytes"],
+    "astra_may_not_attest": ["host execution effect", "host score truth", "owner grant"]
+  },
+  "green": {
+    "r1_local_green_is_not_module_green": true,
+    "requires_host": ["Braun review", "pinned install behind house stop", "natural Stop", "natural restart", "crash recovery", "protected independent attestations", "comparable BEFORE/SHADOW/AFTER", "actual cycle journal and effect hashes"],
+    "m15_gate": "verified full M14 GREEN only"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "braun.m14.holdout_manifest/1",
+  "status": "FROZEN_LAYOUT_AWAITING_HOST_SEAL",
+  "unit": "GEN-template-k",
+  "groups": {
+    "DEV": [
+      {"cluster_id": "GEN-template-0", "sample_ids": ["GEN-template-0-v0", "GEN-template-0-v1", "GEN-template-0-v2", "GEN-template-0-v3"]},
+      {"cluster_id": "GEN-template-1", "sample_ids": ["GEN-template-1-v0", "GEN-template-1-v1", "GEN-template-1-v2", "GEN-template-1-v3"]},
+      {"cluster_id": "GEN-template-2", "sample_ids": ["GEN-template-2-v0", "GEN-template-2-v1", "GEN-template-2-v2", "GEN-template-2-v3"]}
+    ],
+    "SHADOW": [
+      {"cluster_id": "GEN-template-3", "sample_ids": ["GEN-template-3-v0", "GEN-template-3-v1", "GEN-template-3-v2", "GEN-template-3-v3"]},
+      {"cluster_id": "GEN-template-4", "sample_ids": ["GEN-template-4-v0", "GEN-template-4-v1", "GEN-template-4-v2", "GEN-template-4-v3"]}
+    ],
+    "FINAL": [
+      {"cluster_id": "GEN-template-5", "sample_ids": ["GEN-template-5-v0", "GEN-template-5-v1", "GEN-template-5-v2", "GEN-template-5-v3"]}
+    ]
+  },
+  "scorer_sha256": "37329b673095fc36f5abf5be0eaf3f67966533c28a7e8a6c22f91a26aaa91e5d",
+  "pilot_frontier_sha256": "40fea3592f5c11239c9e94ebf5a2b1229ad06a05c739f3ec15acb21eed2f8e76",
+  "protocol": "braun.measurement/2",
+  "final_open_rule": "once; a later optimization requires a new holdout",
+  "warning": "The 09.09 pilot exposed all 24 samples; this layout is a contract proposal, not a fresh hidden holdout. Host must create and seal a new equivalent holdout before EFFECT_VERIFIED."
+}

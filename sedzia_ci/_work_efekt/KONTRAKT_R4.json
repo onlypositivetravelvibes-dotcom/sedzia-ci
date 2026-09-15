@@ -1,0 +1,66 @@
+{
+  "schema": "braun.m14.r4_delta_contract/1",
+  "status": "FROZEN_BEFORE_R4_CODE",
+  "base_contracts": [
+    "KONTRAKT_R1.json",
+    "KONTRAKT_R2.json",
+    "KONTRAKT_R3.json"
+  ],
+  "source_task": {
+    "comment_id": 5676028595,
+    "commit": "14e0aedfecbe206cae37c703f5e876e0777fbab5",
+    "path": "od_brauna/2026-09-15__M14-R4-zlecenie/ZLECENIE_R4.md",
+    "sha256": "188c31e8f89325b147850690793269ebee1e5738c5a088e51f2108838dff10a5"
+  },
+  "host_binding": {
+    "installed_runtime": "M14_R2",
+    "r3_runtime_src_byte_identical_to_r2": true,
+    "installer_rounds": "CLOSED_BY_M14-R3-ODBIOR-1",
+    "trust_policy_authority": "OWNER_SESSION_ENV_ONLY",
+    "astra_env": "BRAUN_ASTRA_PUBKEY",
+    "brat_env": "BRAUN_BRAT_PUBKEY",
+    "key_encoding": "lowercase 32-byte Ed25519 public key hex",
+    "keyid": "first 16 lowercase hex of SHA256(raw public key)",
+    "statement_channel": "od_astry/KANAL/attest/<statement_id>.dsse.json",
+    "channel_trusted": false,
+    "payload_trusted_only_after": "DSSE Ed25519 verification against owner-env policy"
+  },
+  "required_behavior": [
+    "zero or one owner-env keys stays DIAGNOSTIC_ONLY",
+    "two distinct valid owner-env keys create the only eligible two-domain policy",
+    "public keys copied in Git are diagnostic and never admitted as trust roots",
+    "candidate-domain signer, unknown signer, revoked signer, expired statement, altered payload and invalid signature are refused",
+    "EFFECT_VERIFIED requires two verified EFFECT statements with distinct domains and lineages, matching cycle and subject, neither from candidate domain",
+    "worker computes trust_result from signed envelopes and owner-env policy; plan fields cannot inject it",
+    "STOP_BIEGI, house stop and current owner grant checks remain unchanged",
+    "a successful cycle may reach PREPARED/OCEŃ but this package never issues AKTYWUJ"
+  ],
+  "astra_key": {
+    "public_key_hex": "ef73047d2382297d2c435ab9b7f4137ef901447ac807246a791e10765c2dedd0",
+    "keyid": "1a835d13240da459",
+    "private_key_in_git": false,
+    "private_key_persistence": "PRIVATE_DURABLE_STORAGE",
+    "operational_statement_emitted": false
+  },
+  "attestation_boundary": {
+    "astra_may_sign": [
+      "BLOB_FACT recomputed from immutable bytes",
+      "MEASUREMENT produced by Astra's own replay from pinned bytes",
+      "EFFECT derived only from Astra's own comparable BEFORE and AFTER measurements"
+    ],
+    "astra_may_not_sign": [
+      "Braun host execution fact not independently replayed",
+      "Braun host score as truth",
+      "owner activation grant",
+      "brother-domain statement or key"
+    ],
+    "current_operational_status": "NOT_SIGNED_INPUT_BYTES_NOT_YET_BOUND"
+  },
+  "residuals": [
+    "same-model-family: Astra and brother may share the same model family despite separate keys/processes",
+    "owner environment is an administrative trust anchor, not hardware-backed key custody",
+    "fresh hidden holdout is still required because the 2026-09-09 pilot exposed all 24 samples"
+  ],
+  "module_all_green": false,
+  "m15_gate": "verified full M14 GREEN only"
+}

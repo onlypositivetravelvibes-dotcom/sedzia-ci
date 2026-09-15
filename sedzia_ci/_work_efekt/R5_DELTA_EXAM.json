@@ -1,0 +1,30 @@
+{
+  "schema": "braun.m14.r5_delta_exam/1",
+  "frozen_before_code": "2026-09-15T07:54:00Z",
+  "source_message_id": "M14-R4-ODBIOR-1",
+  "scope": "Owner-env public-key normalization and explicit format diagnostics only",
+  "tests": [
+    {
+      "id": "R5-E1",
+      "expect": "A valid 64-hex Ed25519 public key is accepted after surrounding whitespace is stripped and ASCII hex is lower-cased"
+    },
+    {
+      "id": "R5-E2",
+      "expect": "A present but malformed owner-env key yields DIAGNOSTIC_ONLY with reason KEY_FORMAT:<variable>"
+    },
+    {
+      "id": "R5-E3",
+      "expect": "Missing one or both keys remains INDEPENDENT_EFFECT_DOMAINS_MISSING and never becomes READY"
+    },
+    {
+      "id": "R5-E4",
+      "expect": "Two normalized keys must remain distinct; duplicate key material remains INDEPENDENT_EFFECT_DOMAINS_MISSING"
+    },
+    {
+      "id": "R5-E5",
+      "expect": "The full frozen R4 suite and mutants remain green; PREPARE_ONLY and STOP behavior are unchanged"
+    }
+  ],
+  "host_result": "NOT_RUN",
+  "full_m14_green": false
+}

@@ -1,0 +1,34 @@
+{
+  "schema": "m14.effect_two_domains.example/1",
+  "note": "Post-verification objects only. VERIFIED must be emitted by the protected DSSE verifier, never copied from candidate input.",
+  "candidate_domain": "candidate-gen",
+  "verified_attestations": [
+    {
+      "status": "VERIFIED",
+      "predicate_kind": "EFFECT",
+      "domain": "external-measurement-a",
+      "lineage": "measurement-run-a",
+      "statement_id": "effect-a-001",
+      "body": {
+        "subject_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "cycle_id": "cycle-gen-001"
+      }
+    },
+    {
+      "status": "VERIFIED",
+      "predicate_kind": "EFFECT",
+      "domain": "external-audit-b",
+      "lineage": "audit-run-b",
+      "statement_id": "effect-b-001",
+      "body": {
+        "subject_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "cycle_id": "cycle-gen-001"
+      }
+    }
+  ],
+  "expected": {
+    "status": "EFFECT_VERIFIED",
+    "domains": ["external-audit-b", "external-measurement-a"],
+    "lineages": ["audit-run-b", "measurement-run-a"]
+  }
+}
