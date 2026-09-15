@@ -65,7 +65,10 @@ jobs:
         if: ${{ inputs.dzialanie == 'pomiar' }}
         env:
           LUSTRO_TOKEN: ${{ secrets.LUSTRO_TOKEN }}
-        run: git fetch --quiet "https://x-access-token:${LUSTRO_TOKEN}@github.com/braun-systems/KDP-lustro" astra:refs/remotes/origin/astra
+        run: |
+          echo "LUSTRO_TOKEN dlugosc=${#LUSTRO_TOKEN} (0 = sekret nie dotarl)"
+          git -c "http.https://github.com/.extraheader=" fetch "https://x-access-token:${LUSTRO_TOKEN}@github.com/braun-systems/KDP-lustro" astra:refs/remotes/origin/astra
+          git rev-parse --short origin/astra
       - name: sedzia
         env:
           SEDZIA_HASLO: ${{ secrets.SEDZIA_HASLO }}
