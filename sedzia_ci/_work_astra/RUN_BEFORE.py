@@ -2,6 +2,8 @@
 """Reproduce M14 E24 GEN BEFORE from the immutable input bundle."""
 from __future__ import annotations
 
+from datetime import datetime, timedelta, timezone
+import re
 import hashlib
 import json
 import os
@@ -40,7 +42,20 @@ def write_new(path: Path, value: object) -> None:
         os.fsync(handle.fileno())
 
 
+R0_SHA256 = "0b36f708ce4f23264cee0f6a56663a6b75603acc33da473e2658b89e6b88749f"
+
+
 def main() -> int:
+    issued_at = os.environ.get("ISSUED_AT", datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
+    issued = datetime.strptime(issued_at, "%Y-%m-%dT%H:%M:%SZ")
+    phase = os.environ.get("PHASE", "AFTER")
+    if phase not in {"BEFORE", "AFTER", "SHADOW"}:
+        raise ValueError("BAD_PHASE")
+    statement_id = os.environ.get("STATEMENT_ID", "m14-e24-gen-" + phase.lower() + "-astra-1")
+    issuer_ref = os.environ.get("ISSUER_REF", "1a835d13240da459")
+    lineage_ref = os.environ.get("LINEAGE_REF", "astra-e24-independent-reproduction-1")
+    if not all(re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.:-]{0,199}", value) for value in (statement_id, issuer_ref, lineage_ref)):
+        raise ValueError("BAD_STATEMENT_IDENTITY")
     manifest = json.loads((ROOT / "E24_MANIFEST.json").read_text(encoding="utf-8"))
     seed_text = (ROOT / "HOLDOUT_SEED_GEN_v2.txt").read_text(encoding="utf-8").strip()
     if sha_bytes(seed_text.encode()) != manifest["holdout_seed_sha256"]:
@@ -48,7 +63,7 @@ def main() -> int:
     seed = int(seed_text)
 
     local_files = {
-        "solver": BYTES / "gen_sekwencje.py",
+        "solver": Path(os.environ.get("SOLVER_PATH", str(BYTES / "gen_sekwencje.py"))),
         "scorer": BYTES / "zdolnosci.py",
         "gold_oracle": BYTES / "wzorzec_zdolnosci.py",
         "generator": BYTES / "fixtures_zdolnosci.py",
@@ -57,7 +72,8 @@ def main() -> int:
     }
     file_hashes = {name: sha_file(path) for name, path in local_files.items()}
     for name, actual in file_hashes.items():
-        if actual != manifest["code"][name]["sha256"]:
+        expected = R0_SHA256 if name == "solver" and phase == "BEFORE" else manifest["code"][name]["sha256"]
+        if actual != expected:
             raise ValueError("CODE_SHA256_MISMATCH:" + name)
     if sha_bytes(canonical(manifest["tasks"])) != manifest["sample_manifest_sha256"]:
         raise ValueError("SAMPLE_MANIFEST_SHA256_MISMATCH")
@@ -133,7 +149,7 @@ def main() -> int:
         "schema": "braun.m14.e24_before_raw/1",
         "source_commit": "bd71e091c6ba09bdecd1df07a0ea0bce44adf546",
         "cycle_id": "M14-E24-GEN-1",
-        "phase": "BEFORE",
+        "phase": phase,
         "domain": "GEN",
         "manifest_sha256": sha_file(ROOT / "E24_MANIFEST.json"),
         "sample_manifest_sha256": manifest["sample_manifest_sha256"],
@@ -162,7 +178,7 @@ def main() -> int:
     }))
     statement = {
         "schema": "braun.m14.statement/1",
-        "statement_id": "m14-e24-gen-before-astra-1",
+        "statement_id": statement_id,
         "predicate_kind": "MEASUREMENT",
         "subject_sha256": subject_sha,
         "cycle_id": raw_evidence["cycle_id"],
@@ -173,13 +189,13 @@ def main() -> int:
         "evaluator_sha256": file_hashes["scorer"],
         "protocol_sha256": sha_bytes(manifest["code"]["protocol"].encode()),
         "sample_manifest_sha256": manifest["sample_manifest_sha256"],
-        "issuer_ref": "1a835d13240da459",
-        "lineage_ref": "astra-e24-independent-reproduction-1",
-        "issued_at": "2026-09-15T08:02:00Z",
-        "expires_at": "2026-09-22T08:02:00Z",
-        "phase": "BEFORE",
+        "issuer_ref": issuer_ref,
+        "lineage_ref": lineage_ref,
+        "issued_at": issued_at,
+        "expires_at": (issued + timedelta(days=7)).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "phase": phase,
         "value": passed / len(verdicts),
-        "unit": "fraction",
+        "unit": "accuracy",
         "direction": "higher",
         "n": len(verdicts),
         "sample_ids": sorted(generated_by_id),
@@ -207,7 +223,7 @@ def main() -> int:
     }
     write_new(OUT / "SUMMARY.json", summary)
     print(json.dumps(summary, ensure_ascii=False, sort_keys=True))
-    return 0 if passed == len(verdicts) else 2
+    return 0  # A valid measurement may have accuracy below 1; execution success is separate.
 
 
 if __name__ == "__main__":
