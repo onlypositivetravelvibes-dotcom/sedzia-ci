@@ -1,0 +1,10 @@
+{
+ "schema": "sedzia_ci.klucz/1",
+ "salt": "fa8aad614c54d66b656a54e322ae1f9c",
+ "nonce": "20f46ef0f8ecc08aefdec6df",
+ "ct": "796259607ba03e91e10727957ca6e86a54e74e7eac60b678f19f6e5ee5f9ba6b2a53f3c4a4039d82a2735ba79fd64013",
+ "pub_hex": "08e9d619b2751985b6b72ded6caaedf7a8579c9ce6be3545102b172f18f58655",
+ "keyid": "fc5df253a482079e",
+ "created": "2026-09-15T12:16:16Z",
+ "run_id": "34967861954"
+}
