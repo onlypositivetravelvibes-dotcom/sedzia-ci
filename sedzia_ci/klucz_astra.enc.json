@@ -1,0 +1,12 @@
+{
+ "schema": "sedzia_ci.klucz/1",
+ "runner": "astra",
+ "domena": "astra-ci",
+ "salt": "aed636955cddc849194a73e008b095a3",
+ "nonce": "632598dcdbe99f7cdf710cc8",
+ "ct": "d5e6c62f8d429dd297ff4b19fc3e577fb7b0360caa641b59f7561894452051d1dc97a917fc2eadf1951145cea62ca572",
+ "pub_hex": "bca808603e88881236290198950b0bc68efa44a98ed852c2ae4a568a10714fd2",
+ "keyid": "1f536afc558e71dd",
+ "created": "2026-09-15T13:17:31Z",
+ "run_id": "34974040400"
+}
