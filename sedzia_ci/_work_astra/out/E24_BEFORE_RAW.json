@@ -1,0 +1,398 @@
+{
+  "activation_eligible": false,
+  "answers": [
+    {
+      "input_sha256": "d9122ee843da6d8bb4026b8e0829d6ffa487fd12e0fba393afdec20f3fb2b8ab",
+      "raw_answer": "{\"answer\":\"CTATCCCGACGCCTAGCC\"}",
+      "raw_answer_sha256": "d778f4597533fd1f87487d208d034491e1471956e8fa21fc829fbf9291683073",
+      "solver_cpu_us": 19952,
+      "split": "DEV",
+      "task_id": "GEN-template-0-v0",
+      "wall_us": 20173
+    },
+    {
+      "input_sha256": "4a3ad8f5904111ccf236662444f8c14b8af10750d6121319e4acfca7dc5ef21d",
+      "raw_answer": "{\"answer\":\"CCGGGGGGAGACCTGAAT\"}",
+      "raw_answer_sha256": "1342482b5c0430fea43860b9bbbc69a0012b0a6ae46247413163658c2d87dc0a",
+      "solver_cpu_us": 17072,
+      "split": "DEV",
+      "task_id": "GEN-template-0-v1",
+      "wall_us": 17275
+    },
+    {
+      "input_sha256": "9013d6cb01cb24caf1e94f9b77cba9e2112a8b9fdfdf75da6ef175d5201c32bb",
+      "raw_answer": "{\"answer\":\"TAAACATTAAACCATCAG\"}",
+      "raw_answer_sha256": "c95930b762a13713f74dca2ae813f04fb3cb6046eaf8b81ea35f784d7ea95560",
+      "solver_cpu_us": 17633,
+      "split": "DEV",
+      "task_id": "GEN-template-0-v2",
+      "wall_us": 17853
+    },
+    {
+      "input_sha256": "6159fc08d5aa0282ee4bae62bd7fb7b94026c17c1f2492d23ce987f6ebfe747f",
+      "raw_answer": "{\"answer\":\"AGCGCATTTAGTCCCACA\"}",
+      "raw_answer_sha256": "33a6ba9cde70c5188f33a3453cfeb20f44064099e77b118d485519edbfdcf027",
+      "solver_cpu_us": 17604,
+      "split": "DEV",
+      "task_id": "GEN-template-0-v3",
+      "wall_us": 17831
+    },
+    {
+      "input_sha256": "098238c8e9df8fd7e0be5a053b8777a9a06d798e37d1a0133effc8a24d0b55f7",
+      "raw_answer": "{\"answer\":\"CACCCAGCGAGCAAGGCU\"}",
+      "raw_answer_sha256": "a8f0d38d461a7f6c5920853339fefe098bf4bebaab15197826e68a1402c4b020",
+      "solver_cpu_us": 18187,
+      "split": "DEV",
+      "task_id": "GEN-template-1-v0",
+      "wall_us": 18464
+    },
+    {
+      "input_sha256": "cfe0940ec5ffe710664793d7c829957014e2bba1d3169f0c8965cc723215f566",
+      "raw_answer": "{\"answer\":\"UGAACUGCUGUGAUCCUA\"}",
+      "raw_answer_sha256": "23eeedd3402a2186c5bddc581a4302dfc8386bb1a700e4c641028f2757110402",
+      "solver_cpu_us": 17732,
+      "split": "DEV",
+      "task_id": "GEN-template-1-v1",
+      "wall_us": 17975
+    },
+    {
+      "input_sha256": "b186edffe240f6e1f35741f02115fccfc0f83c37a25533cd9e195281099abfd4",
+      "raw_answer": "{\"answer\":\"CCGACAGGGCCCGGGUCC\"}",
+      "raw_answer_sha256": "c1ca9161eb976b987ed81ce28fb62d1d855a859ecb58bee1dd058c6174ffc576",
+      "solver_cpu_us": 17129,
+      "split": "DEV",
+      "task_id": "GEN-template-1-v2",
+      "wall_us": 17338
+    },
+    {
+      "input_sha256": "7161119a8399e29bfd4af40d1f7655c6632fc982cc275c044b5136f163bc6692",
+      "raw_answer": "{\"answer\":\"CGUACCAUGAGCUCAGGU\"}",
+      "raw_answer_sha256": "855f47c0e44b9a9590853c4b56c15d18823842b023295082cd3ca7f7bed1088c",
+      "solver_cpu_us": 17193,
+      "split": "DEV",
+      "task_id": "GEN-template-1-v3",
+      "wall_us": 17380
+    },
+    {
+      "input_sha256": "e18516e21f87227b43831f084c91f25a8378b9156b9e1a3a8dcb6016248d3578",
+      "raw_answer": "{\"answer\":\"CUUUUGCCAUGUGGAGUU\"}",
+      "raw_answer_sha256": "82578e8b73e915baf33e1d2a5cc8c4a46e17e3c2dd9055a84a124421bbcacbfa",
+      "solver_cpu_us": 17307,
+      "split": "DEV",
+      "task_id": "GEN-template-2-v0",
+      "wall_us": 17494
+    },
+    {
+      "input_sha256": "7895ed7173efd52f7f2b013bf134a4d71a61d3e6dbe78828344ba293b3def296",
+      "raw_answer": "{\"answer\":\"AGGAACUUUGGUCCAGUU\"}",
+      "raw_answer_sha256": "b315fb8c9b784b7fec70642599248c27cbc0c585cd2183caaeb3ec5de446590e",
+      "solver_cpu_us": 17317,
+      "split": "DEV",
+      "task_id": "GEN-template-2-v1",
+      "wall_us": 17566
+    },
+    {
+      "input_sha256": "64e6f6ea22b850f8d236a38666ae44883294ecc77a71b74e0ee25b157f96cded",
+      "raw_answer": "{\"answer\":\"UACGACUGCGUUGCCAUC\"}",
+      "raw_answer_sha256": "96c07ce818eafbef141ec37b6fd889834f22786ee4cdb4b2cb924af0808be2a7",
+      "solver_cpu_us": 17452,
+      "split": "DEV",
+      "task_id": "GEN-template-2-v2",
+      "wall_us": 17645
+    },
+    {
+      "input_sha256": "e87d7cc04395d3a89500c7d69a72834a0a1c13c2ae77decfd9d9e7738612482b",
+      "raw_answer": "{\"answer\":\"CCGCACGUCUGAGCUGCG\"}",
+      "raw_answer_sha256": "b1444bb2b15ef03e0fd6780328510e45efd7b7ed35cab6bd944a66f7e58d8b56",
+      "solver_cpu_us": 17192,
+      "split": "DEV",
+      "task_id": "GEN-template-2-v3",
+      "wall_us": 17413
+    },
+    {
+      "input_sha256": "9b74f3dfad8ba3b83b9f57d1170a28d9c15731c3d79a00088c80411989982562",
+      "raw_answer": "{\"answer\":\"MK*\"}",
+      "raw_answer_sha256": "15172088a09a1f6ea89bee0158010d4666957484141e20a3b98d6f9eb35e1b3d",
+      "solver_cpu_us": 17013,
+      "split": "SHADOW",
+      "task_id": "GEN-template-3-v0",
+      "wall_us": 17210
+    },
+    {
+      "input_sha256": "c4eba4b6ce53f21dfd886a5be151b0ea15e6ee25d5a9f7265c403585fd76e40d",
+      "raw_answer": "{\"answer\":\"MWW*\"}",
+      "raw_answer_sha256": "71c9ceff1c23ee482e4397ad35c53548cdb4eda181a2f5f77c0f0c58fd0ac310",
+      "solver_cpu_us": 17077,
+      "split": "SHADOW",
+      "task_id": "GEN-template-3-v1",
+      "wall_us": 17269
+    },
+    {
+      "input_sha256": "f05753a5a1bd2d13a063f1234c628bf2b416f14ac543a7e2aadadef5757aab29",
+      "raw_answer": "{\"answer\":\"MWWW*\"}",
+      "raw_answer_sha256": "909144adb97f041cc37e9aaea01a798ea9a73e7bf92732ca1b4acb7f5d2a55aa",
+      "solver_cpu_us": 16864,
+      "split": "SHADOW",
+      "task_id": "GEN-template-3-v2",
+      "wall_us": 17128
+    },
+    {
+      "input_sha256": "af2a61684876bf0afcf6175a995156af73950343020b32d8c14287ae574be283",
+      "raw_answer": "{\"answer\":\"MCCCC*\"}",
+      "raw_answer_sha256": "11f1f288f1754bac58b31a888b194cea85e375e2814d41a800c86fd1bc462610",
+      "solver_cpu_us": 16978,
+      "split": "SHADOW",
+      "task_id": "GEN-template-3-v3",
+      "wall_us": 17196
+    },
+    {
+      "input_sha256": "42d2240feaa6ddbad7cc6bc83204a7a1d13a379c915fe9cd8e4f68d888972209",
+      "raw_answer": "{\"answer\":[[2,11],[11,17]]}",
+      "raw_answer_sha256": "048b84de6877bbf61b37ae7c054b97a02cd1f0e49b434499ecd8f6fe8d9fc7ef",
+      "solver_cpu_us": 17298,
+      "split": "SHADOW",
+      "task_id": "GEN-template-4-v0",
+      "wall_us": 17500
+    },
+    {
+      "input_sha256": "45e076f0dcc8d12b256f812f14f95afff0039fbefc93d8e3e32538e24058f703",
+      "raw_answer": "{\"answer\":[[2,14],[14,20]]}",
+      "raw_answer_sha256": "0aa48211a3bcec87a5e110b027000d98b5913611caac00d50c95da4da301cd62",
+      "solver_cpu_us": 17324,
+      "split": "SHADOW",
+      "task_id": "GEN-template-4-v1",
+      "wall_us": 17525
+    },
+    {
+      "input_sha256": "277b53c58ed14084dd2ea1d59760eee87a07d7534154e2bc28fcb141c401f5f9",
+      "raw_answer": "{\"answer\":[[2,17],[17,23]]}",
+      "raw_answer_sha256": "2121619fffe388fc3c44abb7cbfbc92f79ac7001e3087dea00508b8d53be1b22",
+      "solver_cpu_us": 17028,
+      "split": "SHADOW",
+      "task_id": "GEN-template-4-v2",
+      "wall_us": 17221
+    },
+    {
+      "input_sha256": "2114b2065ae9e04ce1f299899923096fb72756fc42e40bcb806317402e7c2549",
+      "raw_answer": "{\"answer\":[[2,20],[20,26]]}",
+      "raw_answer_sha256": "e6249dc5dc92485370aad5175881db3d011b9df46383c77173d35609a960869f",
+      "solver_cpu_us": 17111,
+      "split": "SHADOW",
+      "task_id": "GEN-template-4-v3",
+      "wall_us": 17322
+    },
+    {
+      "input_sha256": "dc6b84cb5dc901d89832fd6bdd15e54db88eeda008caa1ec2a28dc51685c755d",
+      "raw_answer": "{\"answer\":1}",
+      "raw_answer_sha256": "aed6cbbe621d94bd02a9b85bd636d371c2039ffdda7da09615ae28e8d19e51f7",
+      "solver_cpu_us": 17110,
+      "split": "FINAL",
+      "task_id": "GEN-template-5-v0",
+      "wall_us": 17308
+    },
+    {
+      "input_sha256": "765d3850ea5f792483c3e4e08783d36ccf4607d9bb7f99558908801d5b5a2565",
+      "raw_answer": "{\"answer\":2}",
+      "raw_answer_sha256": "328a85e0aa53be8ba3a40bc076d0269a6fbba565e324e7c0a38a347e685a4604",
+      "solver_cpu_us": 17294,
+      "split": "FINAL",
+      "task_id": "GEN-template-5-v1",
+      "wall_us": 17508
+    },
+    {
+      "input_sha256": "86e616b3ef07cca57b772082d231ba6bb50dae480fa29f0788f482ef4de1f02d",
+      "raw_answer": "{\"answer\":3}",
+      "raw_answer_sha256": "149e351abfbb6da8135fe5fc17576f1ee2496f272adfe61202f925d689c803ec",
+      "solver_cpu_us": 17151,
+      "split": "FINAL",
+      "task_id": "GEN-template-5-v2",
+      "wall_us": 17385
+    },
+    {
+      "input_sha256": "229d455aec814d2652b97684832aeae6b7f8a5d369f0dd6861488aa3993febe9",
+      "raw_answer": "{\"answer\":4}",
+      "raw_answer_sha256": "3a8edbec1d7c68d70b74ad8eef5a106e141105978b8a0aa99a423070f0edd80e",
+      "solver_cpu_us": 17326,
+      "split": "FINAL",
+      "task_id": "GEN-template-5-v3",
+      "wall_us": 17544
+    }
+  ],
+  "code_sha256": {
+    "common": "09af6988cf93bf78a60d6e3a3fd0d236fd72a5986915c0984beeb62bef6bbbe8",
+    "generator": "0dd2188a922ba7b568e324f89566b1a9eca5005d585ec36f096a90bddbc623b3",
+    "gold_oracle": "cdba289c76a3c516695c37ffc3d0f0d9ddc37952bab8e29d3d6616052b99f107",
+    "measure_port": "f4d99203c16d5c7cb92054a9c390cb4bb39ca8e1dc38dda5ed2f73408d8c41b7",
+    "scorer": "37329b673095fc36f5abf5be0eaf3f67966533c28a7e8a6c22f91a26aaa91e5d",
+    "solver": "b43a0aa0bc26f64b298baf6d240dc944a211f3416edf44aa4565ecc6bd1b0038"
+  },
+  "cost": {
+    "observed_solver_total": 417344,
+    "unit": "cpu_us"
+  },
+  "cycle_id": "M14-E24-GEN-1",
+  "domain": "GEN",
+  "holdout_seed_sha256": "01bc14ab4fbd32b1b39f576f15777a2d498d88834787e6eb512c9ae814a83b8b",
+  "isolation": {
+    "environment": "allowlist PATH and PYTHONIOENCODING only",
+    "gold_and_evaluator": "parent process only",
+    "residual": "same OS user and filesystem; seed disclosed to evaluator and accessible in source bundle",
+    "solver_process": "python -I child; only reviewed solver file copied into child cwd"
+  },
+  "manifest_sha256": "d4f601e47cb3d752e7173137bc9fc7f529da48041b417cd939e914f5a82b1eff",
+  "phase": "BEFORE",
+  "result": {
+    "n": 24,
+    "passed": 24,
+    "value": 1.0
+  },
+  "sample_manifest_sha256": "b8d068d37f6c9033cd24cf530c5c78b9f42f3a4e499c1d655237c90016127c7c",
+  "schema": "braun.m14.e24_before_raw/1",
+  "source_commit": "bd71e091c6ba09bdecd1df07a0ea0bce44adf546",
+  "verdicts": [
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "DEV",
+      "status": "PASS",
+      "task_id": "GEN-template-0-v0"
+    },
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "DEV",
+      "status": "PASS",
+      "task_id": "GEN-template-0-v1"
+    },
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "DEV",
+      "status": "PASS",
+      "task_id": "GEN-template-0-v2"
+    },
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "DEV",
+      "status": "PASS",
+      "task_id": "GEN-template-0-v3"
+    },
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "DEV",
+      "status": "PASS",
+      "task_id": "GEN-template-1-v0"
+    },
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "DEV",
+      "status": "PASS",
+      "task_id": "GEN-template-1-v1"
+    },
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "DEV",
+      "status": "PASS",
+      "task_id": "GEN-template-1-v2"
+    },
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "DEV",
+      "status": "PASS",
+      "task_id": "GEN-template-1-v3"
+    },
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "DEV",
+      "status": "PASS",
+      "task_id": "GEN-template-2-v0"
+    },
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "DEV",
+      "status": "PASS",
+      "task_id": "GEN-template-2-v1"
+    },
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "DEV",
+      "status": "PASS",
+      "task_id": "GEN-template-2-v2"
+    },
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "DEV",
+      "status": "PASS",
+      "task_id": "GEN-template-2-v3"
+    },
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "SHADOW",
+      "status": "PASS",
+      "task_id": "GEN-template-3-v0"
+    },
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "SHADOW",
+      "status": "PASS",
+      "task_id": "GEN-template-3-v1"
+    },
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "SHADOW",
+      "status": "PASS",
+      "task_id": "GEN-template-3-v2"
+    },
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "SHADOW",
+      "status": "PASS",
+      "task_id": "GEN-template-3-v3"
+    },
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "SHADOW",
+      "status": "PASS",
+      "task_id": "GEN-template-4-v0"
+    },
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "SHADOW",
+      "status": "PASS",
+      "task_id": "GEN-template-4-v1"
+    },
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "SHADOW",
+      "status": "PASS",
+      "task_id": "GEN-template-4-v2"
+    },
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "SHADOW",
+      "status": "PASS",
+      "task_id": "GEN-template-4-v3"
+    },
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "FINAL",
+      "status": "PASS",
+      "task_id": "GEN-template-5-v0"
+    },
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "FINAL",
+      "status": "PASS",
+      "task_id": "GEN-template-5-v1"
+    },
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "FINAL",
+      "status": "PASS",
+      "task_id": "GEN-template-5-v2"
+    },
+    {
+      "reason": "SEQUENCE_OR_COORDINATES",
+      "split": "FINAL",
+      "status": "PASS",
+      "task_id": "GEN-template-5-v3"
+    }
+  ]
+}

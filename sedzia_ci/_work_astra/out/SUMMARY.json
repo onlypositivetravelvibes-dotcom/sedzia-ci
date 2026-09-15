@@ -1,0 +1,16 @@
+{
+  "after": "NOT_RUN",
+  "effect": "NOT_RUN",
+  "full_m14_green": false,
+  "grant": "NOT_ISSUED",
+  "m15_gate": "BLOCKED",
+  "n": 24,
+  "passed": 24,
+  "raw_evidence_persistence": "LOCAL_TRANSIENT_NOT_PUBLISHED_TO_AVOID_HOLDOUT_ANSWER_LEAKAGE",
+  "raw_evidence_sha256": "105a951b72e16694172a440085aecd3d3fc8527ff0e7935be0e46711314aee4e",
+  "schema": "braun.m14.e24_before_summary/1",
+  "signature": "NOT_RUN_PRIVATE_KEY_UNAVAILABLE_IN_RUNTIME",
+  "statement_body_sha256": "9b35e9d758a901edc7b5a1d67269956cb7123c4a0d9a2695e3bc04d028a1bc85",
+  "status": "MEASURED_UNSIGNED",
+  "value": 1.0
+}

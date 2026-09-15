@@ -1,0 +1,209 @@
+{
+ "schema": "braun.m14.e24_inputs/1",
+ "domain": "GEN",
+ "utc": "2026-09-15T07:55:59Z",
+ "holdout_seed_sha256": "01bc14ab4fbd32b1b39f576f15777a2d498d88834787e6eb512c9ae814a83b8b",
+ "seed_disclosure": "ziarno w HOLDOUT_SEED_GEN_v2.txt — dla sędziów (Astra, brat); kandydat = kod solvera w piaskownicy (env wyczyszczone), residual: ten sam użytkownik FS",
+ "n": 24,
+ "clusters": {
+  "DEV": [
+   0,
+   1,
+   2
+  ],
+  "SHADOW": [
+   3,
+   4
+  ],
+  "FINAL": [
+   5
+  ]
+ },
+ "variants_per_cluster": 4,
+ "final_open_rule": "FINAL otwierany raz; kolejna optymalizacja = nowe ziarno",
+ "tasks": [
+  {
+   "task_id": "GEN-template-0-v0",
+   "family_id": "GEN-template-0",
+   "input_sha256": "d9122ee843da6d8bb4026b8e0829d6ffa487fd12e0fba393afdec20f3fb2b8ab",
+   "split": "DEV"
+  },
+  {
+   "task_id": "GEN-template-0-v1",
+   "family_id": "GEN-template-0",
+   "input_sha256": "4a3ad8f5904111ccf236662444f8c14b8af10750d6121319e4acfca7dc5ef21d",
+   "split": "DEV"
+  },
+  {
+   "task_id": "GEN-template-0-v2",
+   "family_id": "GEN-template-0",
+   "input_sha256": "9013d6cb01cb24caf1e94f9b77cba9e2112a8b9fdfdf75da6ef175d5201c32bb",
+   "split": "DEV"
+  },
+  {
+   "task_id": "GEN-template-0-v3",
+   "family_id": "GEN-template-0",
+   "input_sha256": "6159fc08d5aa0282ee4bae62bd7fb7b94026c17c1f2492d23ce987f6ebfe747f",
+   "split": "DEV"
+  },
+  {
+   "task_id": "GEN-template-1-v0",
+   "family_id": "GEN-template-1",
+   "input_sha256": "098238c8e9df8fd7e0be5a053b8777a9a06d798e37d1a0133effc8a24d0b55f7",
+   "split": "DEV"
+  },
+  {
+   "task_id": "GEN-template-1-v1",
+   "family_id": "GEN-template-1",
+   "input_sha256": "cfe0940ec5ffe710664793d7c829957014e2bba1d3169f0c8965cc723215f566",
+   "split": "DEV"
+  },
+  {
+   "task_id": "GEN-template-1-v2",
+   "family_id": "GEN-template-1",
+   "input_sha256": "b186edffe240f6e1f35741f02115fccfc0f83c37a25533cd9e195281099abfd4",
+   "split": "DEV"
+  },
+  {
+   "task_id": "GEN-template-1-v3",
+   "family_id": "GEN-template-1",
+   "input_sha256": "7161119a8399e29bfd4af40d1f7655c6632fc982cc275c044b5136f163bc6692",
+   "split": "DEV"
+  },
+  {
+   "task_id": "GEN-template-2-v0",
+   "family_id": "GEN-template-2",
+   "input_sha256": "e18516e21f87227b43831f084c91f25a8378b9156b9e1a3a8dcb6016248d3578",
+   "split": "DEV"
+  },
+  {
+   "task_id": "GEN-template-2-v1",
+   "family_id": "GEN-template-2",
+   "input_sha256": "7895ed7173efd52f7f2b013bf134a4d71a61d3e6dbe78828344ba293b3def296",
+   "split": "DEV"
+  },
+  {
+   "task_id": "GEN-template-2-v2",
+   "family_id": "GEN-template-2",
+   "input_sha256": "64e6f6ea22b850f8d236a38666ae44883294ecc77a71b74e0ee25b157f96cded",
+   "split": "DEV"
+  },
+  {
+   "task_id": "GEN-template-2-v3",
+   "family_id": "GEN-template-2",
+   "input_sha256": "e87d7cc04395d3a89500c7d69a72834a0a1c13c2ae77decfd9d9e7738612482b",
+   "split": "DEV"
+  },
+  {
+   "task_id": "GEN-template-3-v0",
+   "family_id": "GEN-template-3",
+   "input_sha256": "9b74f3dfad8ba3b83b9f57d1170a28d9c15731c3d79a00088c80411989982562",
+   "split": "SHADOW"
+  },
+  {
+   "task_id": "GEN-template-3-v1",
+   "family_id": "GEN-template-3",
+   "input_sha256": "c4eba4b6ce53f21dfd886a5be151b0ea15e6ee25d5a9f7265c403585fd76e40d",
+   "split": "SHADOW"
+  },
+  {
+   "task_id": "GEN-template-3-v2",
+   "family_id": "GEN-template-3",
+   "input_sha256": "f05753a5a1bd2d13a063f1234c628bf2b416f14ac543a7e2aadadef5757aab29",
+   "split": "SHADOW"
+  },
+  {
+   "task_id": "GEN-template-3-v3",
+   "family_id": "GEN-template-3",
+   "input_sha256": "af2a61684876bf0afcf6175a995156af73950343020b32d8c14287ae574be283",
+   "split": "SHADOW"
+  },
+  {
+   "task_id": "GEN-template-4-v0",
+   "family_id": "GEN-template-4",
+   "input_sha256": "42d2240feaa6ddbad7cc6bc83204a7a1d13a379c915fe9cd8e4f68d888972209",
+   "split": "SHADOW"
+  },
+  {
+   "task_id": "GEN-template-4-v1",
+   "family_id": "GEN-template-4",
+   "input_sha256": "45e076f0dcc8d12b256f812f14f95afff0039fbefc93d8e3e32538e24058f703",
+   "split": "SHADOW"
+  },
+  {
+   "task_id": "GEN-template-4-v2",
+   "family_id": "GEN-template-4",
+   "input_sha256": "277b53c58ed14084dd2ea1d59760eee87a07d7534154e2bc28fcb141c401f5f9",
+   "split": "SHADOW"
+  },
+  {
+   "task_id": "GEN-template-4-v3",
+   "family_id": "GEN-template-4",
+   "input_sha256": "2114b2065ae9e04ce1f299899923096fb72756fc42e40bcb806317402e7c2549",
+   "split": "SHADOW"
+  },
+  {
+   "task_id": "GEN-template-5-v0",
+   "family_id": "GEN-template-5",
+   "input_sha256": "dc6b84cb5dc901d89832fd6bdd15e54db88eeda008caa1ec2a28dc51685c755d",
+   "split": "FINAL"
+  },
+  {
+   "task_id": "GEN-template-5-v1",
+   "family_id": "GEN-template-5",
+   "input_sha256": "765d3850ea5f792483c3e4e08783d36ccf4607d9bb7f99558908801d5b5a2565",
+   "split": "FINAL"
+  },
+  {
+   "task_id": "GEN-template-5-v2",
+   "family_id": "GEN-template-5",
+   "input_sha256": "86e616b3ef07cca57b772082d231ba6bb50dae480fa29f0788f482ef4de1f02d",
+   "split": "FINAL"
+  },
+  {
+   "task_id": "GEN-template-5-v3",
+   "family_id": "GEN-template-5",
+   "input_sha256": "229d455aec814d2652b97684832aeae6b7f8a5d369f0dd6861488aa3993febe9",
+   "split": "FINAL"
+  }
+ ],
+ "code": {
+  "solver": {
+   "path": "products/quorum-brain/runtime/solvers/gen_sekwencje.py",
+   "sha256": "b43a0aa0bc26f64b298baf6d240dc944a211f3416edf44aa4565ecc6bd1b0038"
+  },
+  "scorer": {
+   "path": "products/quorum-brain/koncept/astra_Z1Z6_0809/ASTRA_Z1_Z6_20260908/src/zdolnosci.py",
+   "sha256": "37329b673095fc36f5abf5be0eaf3f67966533c28a7e8a6c22f91a26aaa91e5d"
+  },
+  "gold_oracle": {
+   "path": ".../src/wzorzec_zdolnosci.py",
+   "sha256": "cdba289c76a3c516695c37ffc3d0f0d9ddc37952bab8e29d3d6616052b99f107",
+   "uwaga": "złoto liczy wzorzec u sędziego; kandydat go nie czyta"
+  },
+  "generator": {
+   "path": ".../src/fixtures_zdolnosci.py",
+   "sha256": "0dd2188a922ba7b568e324f89566b1a9eca5005d585ec36f096a90bddbc623b3"
+  },
+  "common": {
+   "path": ".../src/common.py",
+   "sha256": "09af6988cf93bf78a60d6e3a3fd0d236fd72a5986915c0984beeb62bef6bbbe8"
+  },
+  "measure_port": {
+   "path": "products/quorum-brain/runtime/zdolnosci_pomiar.py",
+   "sha256": "f4d99203c16d5c7cb92054a9c390cb4bb39ca8e1dc38dda5ed2f73408d8c41b7"
+  },
+  "protocol": "braun.measurement/2",
+  "solver_r0": {
+   "path": "products/quorum-brain/runtime/solvers/gen_sekwencje_R0.py",
+   "sha256": "0b36f708ce4f23264cee0f6a56663a6b75603acc33da473e2658b89e6b88749f",
+   "uwaga": "generacja PRZED (g0) dla pierwszego cyklu; gen_sekwencje.py = R1 = kandydat/g1"
+  }
+ },
+ "sample_manifest_sha256": "b8d068d37f6c9033cd24cf530c5c78b9f42f3a4e499c1d655237c90016127c7c",
+ "before_after": {
+  "BEFORE": "solver_r0 (gen_sekwencje_R0.py)",
+  "AFTER": "kandydat z cyklu; dziś R1 = gen_sekwencje.py",
+  "uwaga": "15.09: R1 na świeżym holdoucie u sędziego CI = 24/24; BEFORE na R0 pokaże, ile cykl naprawdę zmienia"
+ }
+}
