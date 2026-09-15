@@ -1,0 +1,75 @@
+#!/usr/bin/env python3
+"""Sędzia CI — druga domena M14. Tryb `klucz`: Ed25519 generowany TU, prywatny szyfrowany hasłem z sekretu repo
+(scrypt + AES-GCM), publiczny do pliku i podsumowania. Tryb `pomiar`: odtworzenie BEFORE/AFTER GEN z bajtów E24
+(gałąź astra), werdykt scorerem Astry (zdolnosci.evaluate), statement MEASUREMENT podpisany kodem Astry (sign_statement)."""
+import base64, hashlib, json, os, subprocess, sys, time, importlib.util
+from pathlib import Path
+from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
+from cryptography.hazmat.primitives import serialization
+from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+from cryptography.hazmat.primitives.kdf.scrypt import Scrypt
+TU = Path(__file__).resolve().parent; KLUCZ = TU / "klucz.enc.json"; ATTEST = TU / "attest"; ATTEST.mkdir(exist_ok=True)
+E24 = "od_brauna/2026-09-15__M14-E24-wejscie"; R5 = "od_astry/2026-09-15__M14-R5"
+def git_show(ref_path: str) -> bytes: return subprocess.check_output(["git", "show", ref_path])
+def haslo() -> bytes:
+    h = os.environ.get("SEDZIA_HASLO", "")
+    if len(h) < 16: sys.exit("SEDZIA_HASLO brak albo krótsze niż 16 znaków — ustaw sekret repo (Settings → Secrets → Actions)")
+    return h.encode()
+def kdf(salt: bytes) -> bytes: return Scrypt(salt=salt, length=32, n=2**15, r=8, p=1).derive(haslo())
+def summary(t: str):
+    p = os.environ.get("GITHUB_STEP_SUMMARY"); print(t)
+    if p: open(p, "a").write(t + "\n\n")
+def klucz():
+    if KLUCZ.exists(): sys.exit("klucz już istnieje — nie nadpisuję (revoke = usuń plik i uruchom ponownie)")
+    k = Ed25519PrivateKey.generate(); raw = k.private_bytes(serialization.Encoding.Raw, serialization.PrivateFormat.Raw, serialization.NoEncryption())
+    pub = k.public_key().public_bytes(serialization.Encoding.Raw, serialization.PublicFormat.Raw); salt, nonce = os.urandom(16), os.urandom(12)
+    ct = AESGCM(kdf(salt)).encrypt(nonce, raw, pub)
+    json.dump({"schema": "sedzia_ci.klucz/1", "salt": salt.hex(), "nonce": nonce.hex(), "ct": ct.hex(), "pub_hex": pub.hex(),
+               "keyid": hashlib.sha256(pub).hexdigest()[:16], "created": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "run_id": os.environ.get("RUN_ID")},
+              open(KLUCZ, "w"), indent=1)
+    (TU / "KLUCZ_PUBLICZNY.txt").write_text(f"BRAUN_BRAT_PUBKEY={pub.hex()}\n")
+    summary(f"## Klucz sędziego CI wygenerowany\nkeyid `{hashlib.sha256(pub).hexdigest()[:16]}`\n\nLinia do env sesji Brauna (Rafał, dokładnie tak):\n\n    BRAUN_BRAT_PUBKEY={pub.hex()}\n")
+def odszyfruj() -> Ed25519PrivateKey:
+    j = json.load(open(KLUCZ)); raw = AESGCM(kdf(bytes.fromhex(j["salt"]))).decrypt(bytes.fromhex(j["nonce"]), bytes.fromhex(j["ct"]), bytes.fromhex(j["pub_hex"]))
+    return Ed25519PrivateKey.from_private_bytes(raw)
+def zaladuj(nazwa: str, src: bytes, katalog: Path):
+    p = katalog / (nazwa + ".py"); p.write_bytes(src); spec = importlib.util.spec_from_file_location(nazwa, p); m = importlib.util.module_from_spec(spec); sys.modules[nazwa] = m; spec.loader.exec_module(m); return m
+def pomiar():
+    if not KLUCZ.exists(): sys.exit("brak klucza — uruchom najpierw dzialanie=klucz")
+    work = TU / "_work"; work.mkdir(exist_ok=True); sys.path.insert(0, str(work))
+    solver_path = os.environ.get("SOLVER_PATH") or f"{E24}/bajty/gen_sekwencje.py"   # artefakt MIERZONY: BEFORE = .../gen_sekwencje_R0.py, AFTER = kandydat
+    bajty = {n: git_show(f"origin/astra:{E24}/bajty/{n}") for n in ("common.py", "fixtures_zdolnosci.py", "wzorzec_zdolnosci.py", "zdolnosci.py")}
+    bajty["gen_sekwencje.py"] = git_show(f"origin/astra:{solver_path}"); solver_sha = hashlib.sha256(bajty["gen_sekwencje.py"]).hexdigest()
+    if os.environ.get("CANDIDATE_SHA256") and os.environ["CANDIDATE_SHA256"] != solver_sha: sys.exit(f"KANDYDAT_NIEZGODNY: sha bajtów {solver_sha[:16]} != podany")
+    for n in ("common", "fixtures_zdolnosci", "wzorzec_zdolnosci"): zaladuj(n, bajty[n + ".py"], work)
+    Z = zaladuj("zdolnosci", bajty["zdolnosci.py"], work); G = zaladuj("gen_sekwencje", bajty["gen_sekwencje.py"], work); F = sys.modules["fixtures_zdolnosci"]
+    manifest = json.loads(git_show(f"origin/astra:{E24}/E24_MANIFEST.json")); seed = int(git_show(f"origin/astra:{E24}/HOLDOUT_SEED_GEN_v2.txt").decode().strip())
+    assert hashlib.sha256(str(seed).encode()).hexdigest() == manifest["holdout_seed_sha256"], "ZIARNO_NIEZGODNE_Z_MANIFESTEM"
+    for n, k in (("zdolnosci.py", "scorer"), ("fixtures_zdolnosci.py", "generator")):
+        assert hashlib.sha256(bajty[n]).hexdigest() == manifest["code"][k]["sha256"], f"BAJTY_NIEZGODNE:{n}"
+    tasks = [c for c in F.generate(seed) if c["domain"] == "GEN"]; ids = {r["task_id"]: r for r in manifest["tasks"]}
+    rows = []
+    for c in tasks:
+        assert c["input_sha256"] == ids[c["task_id"]]["input_sha256"], f"WEJSCIE_NIEZGODNE:{c['task_id']}"
+        raw = json.dumps(G.solve(c["input"]), ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()
+        v = Z.evaluate(c, raw); rows.append({"task_id": c["task_id"], "family_id": c["family_id"], "status": v["status"], "reason": v.get("reason"), "answer_sha256": hashlib.sha256(raw).hexdigest()})
+    n = len(rows); passed = sum(r["status"] == "PASS" for r in rows); value = passed / n
+    rows_canon = json.dumps(rows, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()
+    # podpis DOKŁADNIE kodem Astry (R5): m14_common + m14_attestation + sign_statement
+    r5 = work / "r5"; (r5 / "src").mkdir(parents=True, exist_ok=True)
+    for n_ in ("m14_common.py", "m14_attestation.py"): (r5 / "src" / n_).write_bytes(git_show(f"origin/astra:{R5}/src/{n_}"))
+    (r5 / "sign_statement.py").write_bytes(git_show(f"origin/astra:{R5}/sign_statement.py")); sys.path.insert(0, str(r5)); sys.path.insert(0, str(r5 / "src"))
+    import sign_statement as SS
+    kid = json.load(open(KLUCZ))["keyid"]; now = time.gmtime(); iso = lambda t: time.strftime("%Y-%m-%dT%H:%M:%SZ", t)
+    body = {"schema": "braun.m14.statement/1", "statement_id": os.environ["STATEMENT_ID"], "predicate_kind": "MEASUREMENT",
+            "subject_sha256": os.environ.get("SUBJECT_SHA256") or hashlib.sha256(rows_canon).hexdigest(), "cycle_id": os.environ["CYCLE_ID"],
+            "operation_id": os.environ["OPERATION_ID"], "source_event_id": os.environ["SOURCE_EVENT_ID"], "raw_evidence_sha256": hashlib.sha256(rows_canon).hexdigest(),
+            "candidate_sha256": solver_sha, "evaluator_sha256": manifest["code"]["scorer"]["sha256"],
+            "protocol_sha256": hashlib.sha256(b"braun.measurement/2").hexdigest(), "sample_manifest_sha256": manifest["sample_manifest_sha256"],
+            "issuer_ref": kid, "lineage_ref": f"sedzia-ci-run-{os.environ.get('RUN_ID')}", "issued_at": iso(now), "expires_at": iso(time.gmtime(time.time() + 7 * 86400)),
+            "phase": os.environ.get("PHASE", "BEFORE"), "value": value, "unit": "accuracy", "direction": "higher", "n": n, "sample_ids": [r["task_id"] for r in rows], "cost": 0, "missingness": []}
+    env = SS.build_envelope(body, odszyfruj()); sid = body["statement_id"]
+    (ATTEST / f"{sid}.dsse.json").write_text(json.dumps(env, indent=1)); (ATTEST / f"{sid}.POMIAR.json").write_text(json.dumps({"rows": rows, "value": value, "n": n, "passed": passed, "body": body}, ensure_ascii=False, indent=1))
+    summary(f"## Pomiar sędziego CI · {body['phase']} · `{sid}`\nartefakt `{solver_path}` sha `{solver_sha[:16]}…` · value **{value:.4f}** ({passed}/{n} PASS) · keyid `{kid}` · manifest `{manifest['sample_manifest_sha256'][:16]}…`\n\nNiezgodności w wierszach: " + ", ".join(r["task_id"] + ":" + str(r["reason"]) for r in rows if r["status"] != "PASS")[:600])
+if __name__ == "__main__":
+    {"klucz": klucz, "pomiar": pomiar}[os.environ.get("DZIALANIE", "pomiar")]()
