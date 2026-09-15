@@ -135,32 +135,32 @@ jobs:
           def zaladuj(nazwa: str, src: bytes, katalog: Path):
               p = katalog / (nazwa + ".py"); p.write_bytes(src); spec = importlib.util.spec_from_file_location(nazwa, p); m = importlib.util.module_from_spec(spec); sys.modules[nazwa] = m; spec.loader.exec_module(m); return m
           def pomiar_astra():
-              """Kod Astry (RUN_BEFORE.py z jej paczki E24-BEFORE) na niezmiennych wejsciach E24; podpis kluczem astra-ci. Braun nie dotyka jej skryptu:
-              jedyna ingerencja to podmiana CZTERECH pol tozsamosci podpisu w ciele (statement_id, issuer_ref, lineage_ref, issued_at/expires_at), zapisana jawnie obok."""
-              ASTRA_PKG = os.environ.get("ASTRA_RUNNER_PATH", "od_astry/2026-09-15__M14-E24-BEFORE/RUN_BEFORE.py")
+              """Kod Astry (RUN_BEFORE.py z jej paczki R8, sparametryzowany env) na niezmiennych wejsciach E24; podpis kluczem astra-ci.
+              Braun NIE dotyka jej skryptu ani jej ciala: tozsamosc podpisu (STATEMENT_ID, ISSUER_REF, LINEAGE_REF, PHASE, SOLVER_PATH, ISSUED_AT) idzie do niej przez env."""
+              ASTRA_PKG = os.environ.get("ASTRA_RUNNER_PATH", "od_astry/2026-09-15__M14-R8/RUN_BEFORE.py")
               work = TU / "_work_astra"; shutil.rmtree(work, ignore_errors=True); work.mkdir()
-              # 1. niezmienne wejscia E24 z galezi astra (caly katalog) + skrypt Astry
-              tree = subprocess.check_output(["git", "ls-tree", "-r", "--name-only", f"origin/astra", E24]).decode().split()
+              tree = subprocess.check_output(["git", "ls-tree", "-r", "--name-only", "origin/astra", E24]).decode().split()
               for path in tree:
                   rel = Path(path).relative_to(E24); dst = work / rel; dst.parent.mkdir(parents=True, exist_ok=True); dst.write_bytes(git_show(f"origin/astra:{path}"))
               runner_src = git_show(f"origin/astra:{ASTRA_PKG}"); (work / "RUN_BEFORE.py").write_bytes(runner_src); runner_sha = hashlib.sha256(runner_src).hexdigest()
-              # 2. bieg jej kodu, bez modyfikacji
-              r = subprocess.run([sys.executable, str(work / "RUN_BEFORE.py")], cwd=work, capture_output=True, text=True, timeout=900)
+              kid = json.load(open(KLUCZ))["keyid"]; phase = os.environ.get("PHASE", "BEFORE")
+              solver_rel = os.environ.get("SOLVER_PATH") or f"{E24}/bajty/gen_sekwencje_R0.py"; solver_local = work / Path(solver_rel).relative_to(E24)   # sciezka z galezi astra -> lokalna kopia
+              env_astry = dict(os.environ, PHASE=phase, STATEMENT_ID=os.environ["STATEMENT_ID"], ISSUER_REF=kid, LINEAGE_REF=f"{PREFIKS}{os.environ.get('RUN_ID')}", SOLVER_PATH=str(solver_local),
+                               ISSUED_AT=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()))
+              r = subprocess.run([sys.executable, str(work / "RUN_BEFORE.py")], cwd=work, capture_output=True, text=True, timeout=900, env=env_astry)
               if r.returncode != 0: sys.exit("RUN_BEFORE.py Astry padl rc=%d: %s" % (r.returncode, (r.stderr or r.stdout)[-800:]))
-              body_astra = json.loads((work / "out" / "E24_BEFORE_MEASUREMENT_BODY_UNSIGNED.json").read_text()); body_astra_sha = hashlib.sha256(json.dumps(body_astra, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+              body = json.loads((work / "out" / "E24_BEFORE_MEASUREMENT_BODY_UNSIGNED.json").read_text()); body_sha = hashlib.sha256(json.dumps(body, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
               summary_astra = next((json.loads(f.read_text()) for f in (work / "out").glob("*SUMMARY*.json")), {})
-              # 3. podpis: kod Astry (R5 sign_statement) kluczem astra-ci; cztery pola tozsamosci podmienione JAWNIE
+              for k, v in (("statement_id", os.environ["STATEMENT_ID"]), ("issuer_ref", kid), ("lineage_ref", env_astry["LINEAGE_REF"]), ("phase", phase)):
+                  if body.get(k) != v: sys.exit(f"CIALO_ASTRY_NIEZGODNE_Z_ENV:{k}={body.get(k)!r}")
               r5 = work / "r5"; (r5 / "src").mkdir(parents=True, exist_ok=True)
               for n_ in ("m14_common.py", "m14_attestation.py"): (r5 / "src" / n_).write_bytes(git_show(f"origin/astra:{R5}/src/{n_}"))
               (r5 / "sign_statement.py").write_bytes(git_show(f"origin/astra:{R5}/sign_statement.py")); sys.path.insert(0, str(r5)); sys.path.insert(0, str(r5 / "src"))
               import sign_statement as SS
-              kid = json.load(open(KLUCZ))["keyid"]; now = time.gmtime(); iso = lambda t: time.strftime("%Y-%m-%dT%H:%M:%SZ", t)
-              body = dict(body_astra); podmiana = {"statement_id": os.environ["STATEMENT_ID"], "issuer_ref": kid, "lineage_ref": f"{PREFIKS}{os.environ.get('RUN_ID')}", "issued_at": iso(now), "expires_at": iso(time.gmtime(time.time() + 7 * 86400))}
-              if os.environ.get("PHASE"): podmiana["phase"] = os.environ["PHASE"]
-              body.update(podmiana); env = SS.build_envelope(body, odszyfruj()); sid = body["statement_id"]
+              env = SS.build_envelope(body, odszyfruj()); sid = body["statement_id"]   # cialo Astry bajt w bajt, zadnej podmiany
               (ATTEST / f"{sid}.dsse.json").write_text(json.dumps(env, indent=1))
-              (ATTEST / f"{sid}.POMIAR.json").write_text(json.dumps({"runner": "astra", "runner_script": ASTRA_PKG, "runner_script_sha256": runner_sha, "body_astra_unsigned_sha256": body_astra_sha, "pola_podmienione_przez_workflow": podmiana, "summary_astra": summary_astra, "body": body}, ensure_ascii=False, indent=1))
-              summary(f"## Pomiar kodem ASTRY (astra-ci) · {body.get('phase')} · `{sid}`\nskrypt `{ASTRA_PKG}` sha `{runner_sha[:16]}…` · value **{body.get('value'):.4f}** (n={body.get('n')}) · keyid `{kid}` · ciało Astry sha `{body_astra_sha[:16]}…` · podmienione pola: {', '.join(podmiana)}")
+              (ATTEST / f"{sid}.POMIAR.json").write_text(json.dumps({"runner": "astra", "runner_script": ASTRA_PKG, "runner_script_sha256": runner_sha, "body_sha256": body_sha, "pola_podmienione_przez_workflow": [], "env_przekazany": {k: env_astry[k] for k in ("PHASE", "STATEMENT_ID", "ISSUER_REF", "LINEAGE_REF", "SOLVER_PATH", "ISSUED_AT")}, "summary_astra": summary_astra, "body": body}, ensure_ascii=False, indent=1))
+              summary(f"## Pomiar kodem ASTRY (astra-ci, R8) · {phase} · `{sid}`\nskrypt `{ASTRA_PKG}` sha `{runner_sha[:16]}…` · artefakt `{solver_rel}` · value **{body.get('value'):.4f}** (n={body.get('n')}, unit {body.get('unit')}) · keyid `{kid}` · ciało Astry sha `{body_sha[:16]}…` · podmienione pola: ŻADNE (env)")
           def pomiar():
               if not KLUCZ.exists(): sys.exit("brak klucza — uruchom najpierw dzialanie=klucz (runner=%s)" % RUNNER)
               if RUNNER == "astra": return pomiar_astra()
