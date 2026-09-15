@@ -5,12 +5,12 @@
   "grant": "NOT_ISSUED",
   "m15_gate": "BLOCKED",
   "n": 24,
-  "passed": 16,
+  "passed": 24,
   "raw_evidence_persistence": "LOCAL_TRANSIENT_NOT_PUBLISHED_TO_AVOID_HOLDOUT_ANSWER_LEAKAGE",
-  "raw_evidence_sha256": "95992e19cc8bda9d300588e06ae84431856359a42f829d0f25bd468c3a628ce2",
+  "raw_evidence_sha256": "918025547fc7a9a62b74543c062ff964dbf8a54f08b058644b1cd04b05badfb4",
   "schema": "braun.m14.e24_before_summary/1",
   "signature": "NOT_RUN_PRIVATE_KEY_UNAVAILABLE_IN_RUNTIME",
-  "statement_body_sha256": "65001da62ee444fccc42525545b0bd0688d0857aaaf02b81eb8701fa269fd47a",
+  "statement_body_sha256": "f645514d652ad92212dbdbce8e89ac0433f1fd7cd4b29e6af6532977af1eb2c3",
   "status": "MEASURED_UNSIGNED",
-  "value": 0.6666666666666666
+  "value": 1.0
 }
